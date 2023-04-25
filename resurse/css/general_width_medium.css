@@ -1,0 +1,30 @@
+html{
+    font-size: 16px;
+}
+
+body{
+    --spatiere-pagina:25px; /* ETAPA 3 pct a*/
+    --pading-inside-grid: 10px;/* ETAPA 3 pct d*/
+
+
+    --spatiere_sus_header:10px;
+    --spatiere-izolare:10px;
+    
+    --latime_video_minima:240px;
+}
+#PaginaPrincipala{
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:        "f-DespreNoi f-DespreNoi f-DespreNoi "
+                                "f-DespreNoi f-DespreNoi f-DespreNoi"
+                                "f-PachetePromotionale  f-CumLivram f-CumLivram"
+                                "f-PachetePromotionale   f-LoremIpsum7 f-LoremIpsum7"
+                                "f-LoremIpsum6 f-ProduseReduse  f-LoremIpsum8"
+                                "z-AlteInformatii z-AlteInformatii z-AlteInformatii"
+
+    ;
+
+    gap: 8px 8px; /* ETAPA 3 pct b*/
+}       
+

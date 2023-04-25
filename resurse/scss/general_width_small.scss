@@ -1,0 +1,70 @@
+html{
+    font-size: 13px;
+}
+
+body{
+    --spatiere-pagina:15px; /* ETAPA 3 pct a*/
+    --pading-inside-grid: 5px;/* ETAPA 3 pct d*/
+
+    --spatiere_sus_header:8px;
+    --spatiere-izolare:8px;
+
+    --border-iframe-video:4px;
+}
+
+/*#PaginaPrincipala{
+    
+    
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:        "f-DespreNoi "
+                                "f-DespreNoi "
+                                "f-PachetePromotionale "
+                                "f-PachetePromotionale "
+                                "f-CumLivram "
+                                "f-ProduseReduse" 
+                                "f-LoremIpsum6 "
+                                "f-LoremIpsum7"
+                                "z-AlteInformatii"
+
+    ;
+
+    gap: 7px 7px; /* ETAPA 3 pct b
+} */
+
+#PaginaPrincipala{
+    display: block;
+}
+
+
+
+#PaginaPrincipala > *{
+    margin-bottom: 8px; /*ETAPA 3 pct b*/
+}
+
+* { /* ETAPA 2  task-layout  pct 3*/
+    -o-transition-property: none !important;
+    -moz-transition-property: none !important;
+    -ms-transition-property: none !important;
+    -webkit-transition-property: none !important;
+    transition-property: none !important;
+}
+
+
+/* etapa 2 ; task stilizare tabel */
+table,th,td{
+    border:1px solid;
+  
+}
+
+.table-scrollbar{
+    overflow-x: scroll;
+    width:fit-content;
+    
+}
+
+#acasa-mediu{
+    display: block;
+}
+
+

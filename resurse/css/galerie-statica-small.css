@@ -1,0 +1,14 @@
+@media screen and (max-width:855px){
+    #grid-galerie {
+        display:block;
+        max-width: 250px;
+        display: 100%;
+        margin: auto;
+        
+    }
+
+    
+    .white_space{
+        display: none;
+    }
+}

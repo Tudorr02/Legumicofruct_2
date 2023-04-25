@@ -1,0 +1,25 @@
+@use '../../node_modules/bootstrap/scss/bootstrap.scss' with
+ (
+    $primary: #1b4627,
+    $secondary: #E8B320,
+
+    $grid-breakpoints: (
+        
+        sm: 855px,
+        md: 1100px,
+    ),
+
+    $border-radius:               .475rem ,
+    $border-radius-sm:            .35rem ,
+    $border-radius-lg:            .6rem ,
+
+    $h1-font-size:                 3rem,
+   
+    $font-family-base: "Kalam",
+    $btn-font-family: "Segoe UI",
+    $headings-font-family: "Segoe UI"     
+
+     
+)
+
+

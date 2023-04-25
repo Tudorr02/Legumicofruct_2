@@ -1,0 +1,65 @@
+body{
+    --latime-buton:100%;
+}
+ul.meniu li{
+    font-size: 16px;
+}
+
+/* #DevinoPartener_nav{
+    font-size: 16.5px;
+} */
+
+/* #DevinoPartener_nav */
+ #CumSeProcedeaza_nav,#PachetePromotionale_nav{
+    display: inline;
+    line-height: calc(var(--inaltime-meniu)/2px);
+}
+
+
+#hamburger{
+display: block;
+margin: 0;
+
+}
+
+ul.meniu{
+    display: none;
+}
+
+#hamburger >img{
+    height: var(--inaltime-meniu);
+    width: auto;
+    display: block;
+    margin: 0;
+}
+
+#ch-menu:checked + ul.meniu{
+display: block;
+animation-name: animatie_meniu;
+animation-duration: 0.7s;
+animation-timing-function: linear ;
+animation-fill-mode: forwards;
+animation-iteration-count: 1;
+transform-origin: center top;
+}
+
+@keyframes animatie_meniu{
+    0%{
+        opacity: 0;
+        transform: scaleY(0);
+       
+    }
+
+    50%{
+        
+        transform: scaleY(0.5);
+       
+    }
+
+    100%{
+        opacity: 1;
+        transform: scaleY(1);
+    }
+
+}
+

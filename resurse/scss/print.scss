@@ -1,0 +1,83 @@
+#watermark{
+    display: none;
+}
+
+@media print{
+
+
+    footer{
+    position: relative;
+
+    }
+  
+    .banner{
+    position:absolute;
+    display: inline-block;
+    
+    margin: 0;
+    border: 2px double black;
+    border-width: 10px;
+    
+    
+    width: 50%;
+    text-align: center;
+    
+    top:0;
+    right: 0;
+    
+    }
+
+    img,video,iframe,figcaption,.container-iframe,#LinkTop{
+    display: none;
+    }
+
+    #PaginaPrincipala{
+        display: block;
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+
+    h1{
+        text-align: center;
+        
+    }
+
+    nav{
+        page-break-after: always;
+        display: flex;
+    }
+
+
+    
+    #watermark{
+        display: block;
+        position: fixed;
+        height: 10%;
+        width:60%;
+        
+        bottom: 0;
+        color: rgba(0,0,0,0.3);
+        z-index: -1;
+       align-items: center;
+        text-align: center;
+        
+    }
+    
+    footer{
+        page-break-before: always;
+    }
+
+    @page:left{
+        margin-left: 2cm;
+        margin-right: 1cm;
+    }
+
+    @page:right{
+        margin-left: 1cm;
+        margin-right: 2cm;
+    }
+
+}

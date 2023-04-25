@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+       
+
+
+        <title > 
+            Legumicofruct EROARE
+        </title> <!-- PUNCTUL 2  et 1-->
+    
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+           <!-- PUNCTUL 9  et 1-->
+        <meta name="keywords" content="Legumicofruct,fructe si legume proaspete,sănătatea,furnizori locali,
+           productia locala,pachetele noastre promotionale,pachetele promotionale,">
+        <meta name="description" content="Magazin online de legume si fructe.LIVRARE IN 48 ORE!">
+        <link rel="stylesheet" href="/resurse/css/eroare.css" type="text/css">
+        <%- include("../fragmente/head.ejs");  %> 
+
+
+    </head>
+    <body>
+        
+    <%- include("../fragmente/header.ejs");  %> 
+
+    <main>
+        <div id="err-coloane">
+			<div id="err-imag">
+				<img src="<%- locals.imagine %>" />
+			</div>
+			<section>
+				<h2><%- locals.titlu %></h2>
+				<p><%- locals.text %></p>
+			</section>
+		</div>
+    </main>
+    
+    <%- include("../fragmente/footer.ejs");  %> 
+
+
+    </body>
+</html>

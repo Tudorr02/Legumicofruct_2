@@ -1,0 +1,165 @@
+{
+	"cale_galerie":"resurse/imagini/galerie",
+	"imagini": [
+		{
+			"cale_imagine":"galerie_1.png",
+			"titlu":"Cosul Primaverii",
+			"descriere":"Vitamina A & D",
+			"timp":"00:00-15:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_2.png",
+			"titlu":"Cosul Toamei",
+			
+			"timp":"00:00-15:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_3.png",
+			"titlu":"Cosul Noiembrie",
+			
+			"timp":"00:00-15:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_4.png",
+			"titlu":"Cosul Decembrie",
+			
+			"timp":"00:00-15:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_5.png",
+			"titlu":"Cosul Verii",
+			
+			"timp":"00:00-15:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_6.png",
+			"titlu":"Cosul Octombrie 2",
+			
+			"timp":"00:00-15:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_7.png",
+			"titlu":"Cosul Exotic",
+			
+			"timp":"00:00-15:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_8.png",
+			"titlu":"Cosul Romanesc",
+			
+			"timp":"00:00-15:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_9.png",
+			"titlu":"Cosul verii",
+			
+			"timp":"00:00-15:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_10.png",
+			"titlu":"Cosul verii exotic",
+			
+			"timp":"00:00-15:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_11.png",
+			"titlu":"Cosul romanesc si exotic",
+			
+			"timp":"16:00-24:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_12.png",
+			"titlu":"Cosul romanesc 2",
+			
+			"timp":"16:00-24:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_13.png",
+			"titlu":"Cosul August",
+			
+			"timp":"16:00-24:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_14.png",
+			"titlu":"Cosul Octombrie",
+			
+			"timp":"16:00-24:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_15.png",
+			"titlu":"Cosul Iulie",
+			
+			"timp":"16:00-24:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_16.png",
+			"titlu":"Cosul Iunie",
+			
+			"timp":"16:00-24:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_17.png",
+			"titlu":"Cosul Mai",
+			
+			"timp":"16:00-24:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_18.png",
+			"titlu":"Cosul Aprilie",
+			
+			"timp":"16:00-24:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_19.png",
+			"titlu":"Cosul Septembrie",
+			
+			"timp":"16:00-24:00"
+
+			
+		},
+		{
+			"cale_imagine":"galerie_20.png",
+			"titlu":"Cosul Aprilie",
+			
+			"timp":"16:00-24:00"
+
+			
+		}
+	]
+}
