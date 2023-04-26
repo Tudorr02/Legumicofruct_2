@@ -25,9 +25,10 @@
    
     
     <%- include("../fragmente/header.ejs") %>
-    <main id="ContinutPagina" > <!-- PUNCTUL 4 et 1-->
+    
+    <main id="DevinoPartenerPrincipal" > 
         
-       <section id="DevinoPartenerPrincipal">
+       <section id="DevinoPartener">
             
 
             <section >
@@ -36,12 +37,12 @@
                 </div>
                 <br>
                 <div id="Duotone"></div>
-                <div id="galerie-animata">
+                <div >
                     
                     <% const min = 5;
                         const max = 11;
                         const randomInt = Math.floor(Math.random() * (max - min + 1)) + min;
-                     for(let i=(locals.imagini.length-randomInt-1); i<locals.imagini.length;i++) { %>
+                     for(let i=(locals.imagini.length - randomInt-1); i < locals.imagini.length ;i++) { %>
                                             
                         <figure class="imagini_galerie">
                             <picture>
