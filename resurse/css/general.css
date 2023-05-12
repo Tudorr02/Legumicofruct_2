@@ -39,7 +39,7 @@ body{
     min-width: 580px;
 }
 
-#PaginaPrincipala > section, #DevinoPartenerPrincipal>section {
+#PaginaPrincipala > section, #DevinoPartenerPrincipal>section, #filtre_produse,.produs {
 
     border: 5px solid var(--culoare_border1);
     padding: var(--pading-inside-grid);/* ETAPA 3 pct d*/
@@ -48,8 +48,10 @@ body{
     border-radius: 10px;
     box-shadow: 0px 0px 20px black ;
     
+    
 
 }
+
 
 
 

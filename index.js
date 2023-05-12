@@ -5,6 +5,19 @@ const fs=require('fs');
 const path= require('path');
 const sharp=require('sharp');
 const sass= require('sass');
+const ejs=require('ejs');
+const {Client}= require('pg');
+
+var client= new Client({database:"legumicofruct",
+        user:"legumicofruct",
+        password:"admin",
+        host:"localhost",
+        port:5432});
+client.connect();
+client.query("select * from lab8_16", function(err,rez){
+    console.log("eroare:",err);
+    console.log("rezultat:",rez);
+})
 
 obGlobal={
     obErori:null,
@@ -91,6 +104,47 @@ app.get("/ceva",function(req,res){
 app.get(["/index","/","/home"],function(req,res){
     res.render("pagini/index",{ip:req.ip, imagini: obGlobal.obImagini.imagini});
 })
+
+//--------------PRODUSE-----------------
+app.get("/produse_legumicofruct",function(req, res){
+    //console.log(req.query.tip);
+
+    //TO DO query pentru a selecta toate produsele
+    //TO DO se adauaga filtrarea dupa tipul produsului
+    //TO DO se selecteaza si toate valorile din enum-ul categ_prajitura
+             let conditieWhere="";    
+            if(req.query.tip)
+            conditieWhere=` where tip_produs='${req.query.tip}'`
+        
+        client.query("select * from produse "+conditieWhere , function( err, rez){
+            console.log(300)
+            if(err){
+                console.log(err);
+                afisareEroare(res, 2);
+            }
+            else{
+                console.log(rez);
+                res.render("pagini/produse_legumicofruct", {produse:rez.rows, optiuni:[]});
+            }
+        });
+
+
+});
+
+
+app.get("/produs/:id",function(req, res){
+    console.log(req.params);
+   
+    client.query(`select * from produse where id=${req.params.id}`, function( err, rezultat){
+        if(err){
+            console.log(err);
+            afisareEroare(res, 2);
+        }
+        else
+            res.render("pagini/produs", {prod:rezultat.rows[0] });
+    });
+});
+
 
 app.get("/*.ejs",function(req,res){
     afisareEroare(res,400);

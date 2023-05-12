@@ -1,0 +1,32 @@
+#art-produs{
+    border: 5px solid var(--culoare_border1);
+    padding: var(--pading-inside-grid);/* ETAPA 3 pct d*/
+    background-color: var(--culoare_grid);
+    border: var(--culoare_border1) 5px solid;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px black ;
+  
+    
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .imag-produs{
+    width: 50%;
+    margin-top: 50px;
+    margin-left: 10px;
+  }
+
+
+.text{
+    border: 5px solid var(--culoare_border1);
+    border-radius: 10px;
+    
+}
+.text>p{
+    margin-left: 10px;
+    margin-top: 15px;
+}

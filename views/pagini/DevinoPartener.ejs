@@ -37,26 +37,7 @@
                 </div>
                 <br>
                 <div id="Duotone"></div>
-                <div >
-                    
-                    <% const min = 5;
-                        const max = 11;
-                        const randomInt = Math.floor(Math.random() * (max - min + 1)) + min;
-                     for(let i=(locals.imagini.length - randomInt-1); i < locals.imagini.length ;i++) { %>
-                                            
-                        <figure class="imagini_galerie">
-                            <picture>
-                                <source srcset="<%- locals.imagini[i].cale_imagine_mediu%>" media="(max-width:1100px)" />
-                                <source srcset="<%- locals.imagini[i].cale_imagine_mic%>" media="(max-width:850px)" />
-
-                                <img src="<%- locals.imagini[i].cale_imagine%>" alt="<%- locals.imagini[i].titlu%>">
-                            </picture>
-                                            
-                            <figcaption><%- locals.imagini[i].titlu %></figcaption>
-                        </figure>
-                    <% } %>
-
-                </div>
+               
 
                
             </section>

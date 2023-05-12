@@ -1,0 +1,59 @@
+
+
+#filtre_produse{
+    margin-bottom: 20px;
+}
+.cal_nutritiva{
+    display:flex;
+}
+.cal_nutritiva>p{
+    margin-left: 10px;
+    border: 3px solid var(--culoare_border1);
+    padding: 2px;
+    border-radius: 8px;
+}
+#filtre_produse> h3{
+        text-align: left;
+}
+
+#filtre_produse> label{
+    margin-bottom: 15px;
+    
+}
+
+
+.buttons{
+    display: flexbox;
+    text-align: center;
+    
+}
+
+.grid-produse{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap:20px 20px;
+    
+    text-align: center;
+}
+
+.grid-produse .produs{
+    border-radius: 40px;
+    display: block;
+    overflow: hidden;
+    text-align: center;
+}
+
+.selecteaza-cos{
+    display: inline-flex;
+    justify-content: center;
+    border: 5px solid var(--culoare_evidentiere2);
+    border-radius: 10px;
+    border-width: 10px;
+    
+    background-color: var(--culoare_evidentiere2);
+}
+
+.selecteaza-cos>input{
+    margin-left: 5px;
+}
+
