@@ -1,11 +1,11 @@
 .HR {
     border: none;
-    height: 10px;
+    height: 20px;
     background-image: linear-gradient(-45deg, var(--culoare_grid), var(--culoare_grid) 25%, var(--culoare_evidentiere1) 25%,  var(--culoare_evidentiere1) 50%,var(--culoare_evidentiere1) 75% , var(--culoare_grid) 75%,var(--culoare_grid) 100%)
     ,linear-gradient(45deg, var(--culoare_grid), var(--culoare_grid) 25%, var(--culoare_evidentiere1) 25%,  var(--culoare_evidentiere1) 50%,var(--culoare_evidentiere1) 75% , var(--culoare_grid) 75%,var(--culoare_grid) 100%);
     background-repeat: repeat-x,repeat-x;
+    background-size: 10px,10px;
     
-    background-position:center top,center bottom;
     
   }
  
