@@ -33,10 +33,9 @@
             <ul>
                 
                 <li><a href="/produse_legumicofruct" style="text-decoration: none;">Toate</a></li>
-                <li><a href="/produse_legumicofruct?tip=fructe" style="text-decoration: none;">Fructe</a></li>
-                <li><a href="/produse_legumicofruct?tip=legume" style="text-decoration: none;">Legume</a></li>
-                <li><a href="/produse_legumicofruct?tip=cosuri" style="text-decoration: none;">Cosuri</a></li>
-
+                <% for (let opt of locals.optiuniMeniu) { %>
+                    <li><a href="/produse_legumicofruct?tip=<%- opt.unnest %>" style="text-decoration: none;"><%- opt.unnest %></a></li>
+                <% } %>
             </ul>
         </li>
 

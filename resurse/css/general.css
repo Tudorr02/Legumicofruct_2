@@ -1,374 +1,255 @@
 /* Task 3 et 3 */
-
-
-html{
-    font-size: 20px;
-}
-body{
-
-    --culoare_fundal: #1b4627; 
-    --culoare_grid: #5FB878;
-    --culoare_hover_meniu: #5FB878;
-    --culoare_text: white;
-    --culoare_funal_alba: white;
-    --culoare_border1: #2D6B3F;
-    --culoare_evidentiere1: #E67709;
-    --culoare_border2:#91FFB0;
-    --culoare_evidentiere2: #E8B320;
-    --culoare_linktop: #20e873;
-    --spatiere-pagina: 40px;/* ETAPA 3 pct a*/
-    --pading-inside-grid: 15px;/* ETAPA 3 pct d*/
-
-    --border-iframe-video:6px;
-    /* ETAPA 3 pct c*/
-    --spatiere_sus_header:20px;
-    --spatiere-izolare:20px;
-
-    /*etapa 4 task video*/
-
-    --latime_video_maxima:640px;
-    --latime_video_minima:420px;
-  
+html {
+  font-size: 20px;
 }
 
-body{
-    background-color: var(--culoare_fundal);
-    color: var(--culoare_text);
-    padding-left: var(--spatiere-pagina);/* ETAPA 3 pct a*/
-    padding-right: var(--spatiere-pagina);/* ETAPA 3 pct a*/
-    min-width: 580px;
+body {
+  --culoare_fundal: #1b4627;
+  --culoare_grid: #5FB878;
+  --culoare_hover_meniu: #5FB878;
+  --culoare_text: white;
+  --culoare_funal_alba: white;
+  --culoare_border1: #2D6B3F;
+  --culoare_evidentiere1: #E67709;
+  --culoare_border2:#91FFB0;
+  --culoare_evidentiere2: #E8B320;
+  --culoare_linktop: #20e873;
+  --spatiere-pagina: 40px; /* ETAPA 3 pct a*/
+  --pading-inside-grid: 15px; /* ETAPA 3 pct d*/
+  --border-iframe-video:6px;
+  /* ETAPA 3 pct c*/
+  --spatiere_sus_header:20px;
+  --spatiere-izolare:20px;
 }
 
-#PaginaPrincipala > section, #DevinoPartenerPrincipal>section, #filtre_produse,.produs {
-
-    border: 5px solid var(--culoare_border1);
-    padding: var(--pading-inside-grid);/* ETAPA 3 pct d*/
-    background-color: var(--culoare_grid);
-    border: var(--culoare_border1) 5px solid;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px black ;
-    
-    
-
+body {
+  background-color: var(--culoare_fundal);
+  color: var(--culoare_text);
+  padding-left: var(--spatiere-pagina); /* ETAPA 3 pct a*/
+  padding-right: var(--spatiere-pagina); /* ETAPA 3 pct a*/
+  min-width: 580px;
 }
-
-
-
+body > * {
+  margin-bottom: var(--spatiere-izolare);
+}
 
 /* Task 4 et 3 */
-#PaginaPrincipala{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-areas:        "f-DespreNoi f-DespreNoi f-DespreNoi f-DespreNoi"
-                                "f-DespreNoi f-DespreNoi f-DespreNoi f-DespreNoi"
-                                "f-LoremIpsum8 f-LoremIpsum8 f-CumLivram f-CumLivram"
-                                "f-LoremIpsum8 f-LoremIpsum8 f-ProduseReduse f-ProduseReduse"
-                                "f-LoremIpsum6 f-LoremIpsum7 f-LoremIpsum7  f-PachetePromotionale"
-                                "z-AlteInformatii z-AlteInformatii z-AlteInformatii z-AlteInformatii"
-
-    ;
-
-    gap: 20px 20px; /* ETAPA 3 pct b*/
+#PaginaPrincipala {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "f-DespreNoi f-DespreNoi f-DespreNoi f-DespreNoi" "f-DespreNoi f-DespreNoi f-DespreNoi f-DespreNoi" "f-PachetePromotionale f-PachetePromotionale f-CumLivram f-CumLivram" "f-PachetePromotionale f-PachetePromotionale f-ProduseReduse f-ProduseReduse" "f-LoremIpsum6 f-LoremIpsum7 f-LoremIpsum7 f-LoremIpsum8" "z-AlteInformatii z-AlteInformatii z-AlteInformatii z-AlteInformatii";
+  gap: 20px 20px; /* ETAPA 3 pct b*/
+}
+#PaginaPrincipala > section {
+  border: 5px solid var(--culoare_border1);
+  padding: var(--pading-inside-grid); /* ETAPA 3 pct d*/
+  background-color: var(--culoare_grid);
+  border: var(--culoare_border1) 5px solid;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px black;
 }
 
-h1,h2,h3{
-    text-align: center;
+#DespreNoi {
+  grid-area: f-DespreNoi;
 }
 
-#LoremIpsum7,#DespreNoi>figure{
-    text-align: center;
+#CumLivram {
+  grid-area: f-CumLivram;
 }
 
-#DespreNoi{
-    grid-area: f-DespreNoi;
+#PachetePromotionale {
+  grid-area: f-PachetePromotionale;
 }
 
-#CumLivram{
-    grid-area: f-CumLivram;
+#ProduseReduse {
+  grid-area: f-ProduseReduse;
 }
 
-#PachetePromotionale{
-    grid-area: f-PachetePromotionale;
+#AlteInformatii {
+  grid-area: z-AlteInformatii;
 }
 
-#ProduseReduse{
-    grid-area: f-ProduseReduse;
+#LoremIpsum6 {
+  grid-area: f-LoremIpsum6;
 }
 
-#AlteInformatii{
-    grid-area: z-AlteInformatii;
+#LoremIpsum7 {
+  grid-area: f-LoremIpsum7;
 }
 
-#LoremIpsum6{
-    grid-area: f-LoremIpsum6;
+#LoremIpsum8 {
+  grid-area: f-LoremIpsum8;
 }
 
-#LoremIpsum7{
-    grid-area: f-LoremIpsum7;
-}
-
-#LoremIpsum8{
-    grid-area: f-LoremIpsum8;
-}
-
-img, iframe{
-    width: 100%;
+img, iframe {
+  width: 100%;
 }
 
 /* ETAPA 3 pct e*/
-
-.size_video{
-    max-width: 760px;
-    min-width: 460px;
+.size_video {
+  max-width: 760px;
+  min-width: 460px;
 }
 
-.size_banner{
-    max-width: 800px;
-    min-width: 400;
+.size_banner {
+  max-width: 800px;
+  min-width: 400;
 }
 
-.size_cosul_familiei{
-    max-width: 300px;
-    min-width: 150px;
+.size_cosul_familiei {
+  max-width: 300px;
+  min-width: 150px;
 }
+
 /* final etapa 3 pct e*/
-
 /* etapa 2 ; task layout -> pct 2  */
-
-h1{
-    font-size: 2rem;
+h1 {
+  font-size: 2rem;
 }
 
-h2{
-    font-size: 1.5rem;
+h2 {
+  font-size: 1.5rem;
 }
 
-h3{
-    font-size: 1.2rem;
+h3 {
+  font-size: 1.2rem;
 }
 
-.font_CumLivram{
-    font-family: 'Kalam', cursive;  
+.font_CumLivram {
+  font-family: "Kalam", cursive;
 }
 
 /* etapa 2 ; task stilizare taburi */
-
-.container-iframe >iframe{
-    
-    border:#E8B320 var(--border-iframe-video) solid;
-    border-radius: 8px;
-    align-items: center;
-    
+.container-iframe {
+  text-align: center;
+  flex-direction: column;
+  padding: 10px;
+}
+.container-iframe > iframe {
+  border: #E8B320 var(--border-iframe-video) solid;
+  border-radius: 8px;
+  align-items: center;
 }
 
-.container-iframe{
-    text-align: center;
-    flex-direction: column;
-    padding: 10px;
+.taburi-iframe {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.taburi-iframe > a {
+  transition: 1s;
+  width: 300px;
+  height: 50px;
+  box-shadow: 0 0 10px 4px var(--culoare_evidentiere1);
+  align-items: center;
+  background-color: var(--culoare_fundal);
+  border: var(--culoare_evidentiere2) 1px solid;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  margin-left: 20px;
+}
+.taburi-iframe > a:hover {
+  background-color: var(--culoare_evidentiere2);
 }
 
-.taburi-iframe{
-   
-   display: flex;
-   
-   justify-content: center;
-   flex-direction: row;
-
-}
-.taburi-iframe>a:hover{
-    background-color: var(--culoare_evidentiere2);
-}
-.taburi-iframe >a{
-    
-    transition: 1s;
-    width: 300px;
-    height: 50px;
-    box-shadow: 0 0 10px 4px var(--culoare_evidentiere1) ;
-    align-items: center;
-    background-color: var(--culoare_fundal);
-    border: var(--culoare_evidentiere2) 1px solid;
-    
-    color: white;
-    text-align: center;
-    border-radius: 6px;
-    margin-left: 20px
-    
+#link_2 {
+  line-height: 50px;
 }
 
-#link_2{
-    line-height: 50px;
-}
-
-#link_1{
-    line-height: 25px;
+#link_1 {
+  line-height: 25px;
 }
 
 /* etapa 2 ; task stilizare tabel */
-table{
-caption-side:bottom
-
+table {
+  caption-side: bottom;
 }
 
-table,th,td{
-    border:1px solid;
-    padding: 5px;
-    
-    
-}
-tr:nth-child(odd){
-    background-color: var(--culoare_evidentiere1);
+table, th, td {
+  border: 1px solid;
+  padding: 5px;
 }
 
-tr:nth-child(even){
-    background-color: var(--culoare_evidentiere2);
+tr:nth-child(odd) {
+  background-color: var(--culoare_evidentiere1);
 }
 
-th{
-    background-color: var(--culoare_fundal);
+tr:nth-child(even) {
+  background-color: var(--culoare_evidentiere2);
 }
 
-tr{
-    transition: 0.8s;
+th {
+  background-color: var(--culoare_fundal);
 }
 
-tr:hover{
-    transition: 0.8s;
-    background-color: var(--culoare_border2);
-    
-    
+tr {
+  transition: 0.8s;
+}
+tr:hover {
+  transition: 0.8s;
+  background-color: var(--culoare_border2);
 }
 
 /* etapa 2 ; task link-top*/
-
-#triunghi{
-    height:0px;
-    width:0;
-    display:inline-block;
-    border-bottom:1.5rem solid rgb(88, 192, 131);
-    border-left:1rem solid transparent;
-    border-right:1rem solid transparent;
-    vertical-align: top;
-    transform: translateY(30%);
-
-    
-  }
-
-
-#LinkTop:hover{
-    background-color: #E8B320;
-    border:1px solid  var(--culoare_border2);
-    opacity: 1;
-   
+#triunghi {
+  height: 0px;
+  width: 0;
+  display: inline-block;
+  border-bottom: 1.5rem solid rgb(88, 192, 131);
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+  vertical-align: top;
+  transform: translateY(30%);
 }
-#triunghi:hover{
-    border-bottom-color: var(--culoare_border2);
-    opacity: 1;
-    
+#triunghi:hover {
+  border-bottom-color: var(--culoare_border2);
+  opacity: 1;
+}
+#triunghi:hover::after {
+  background-color: black;
+  color: white;
+  padding: 4px 8px;
+}
+#triunghi::after {
+  content: "";
+  visibility: hidden;
 }
 
-  #LinkTop{
-    position:fixed;
-  bottom:0.3em;
-  opacity:0.5;
-  right:0.3em;
-  width:3rem;
+#LinkTop {
+  position: fixed;
+  bottom: 0.3em;
+  opacity: 0.5;
+  right: 0.3em;
+  width: 3rem;
   box-sizing: border-box;
-  height:3rem;
-  line-height:3rem;
-  text-align:center;
-  border:1px solid  rgb(88, 192, 131);
-  border-radius:50%;
-  background: rgb(220,220,220);
-  }
-
- #triunghi:hover::after {
-    
-    background-color: black;
-    color: white;
-    padding: 4px 8px;
-   
-  }
-
-  #triunghi::after {
-    content: "";
-    visibility: hidden;
-  }
-
-  /*Etapa 3 pct c*/
-
-  header{
-    margin-top: var(--spatiere_sus_header);
-    background-color: var(--culoare_evidentiere2);
-    border: var(--culoare_evidentiere1) 5px solid;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px black ;
-    padding: var(--pading-inside-grid);
-  }
-
- 
-
-  footer{
-    
-    background-color: var(--culoare_evidentiere2);
-    border: var(--culoare_evidentiere1) 5px solid;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px black ;
-    padding: var(--pading-inside-grid);
-  }
-
-  body> *{
-    margin-bottom: var(--spatiere-izolare);
-  }
-
-
-  /*ETAPA 4 */
-
-  video{
-    width: 100%;
-    max-width:var(--latime_video_maxima);
-    min-width: var(--latime_video_minima)
-    
-  }
-
-  ::cue{
-    background-color: white;
-    color: var(--culoare_fundal);
-    
-  }
-
- 
-
-  footer a:visited{
-    color:var(--culoare_border1);
-  }
-
-  footer a:active{
-    border: 2px var(--culoare_border1) solid;
-  }
-
-footer a[href^="http"]::before {
-    content: "⮳";
-    font-size: 1.5em; /* 50% mai mare decât dimensiunea fontului linkului */
-  }
-
- footer a[href^="http"]:hover::before {
-    color: red; /* culoarea când cursorul este deasupra */
+  height: 3rem;
+  line-height: 3rem;
+  text-align: center;
+  border: 1px solid rgb(88, 192, 131);
+  border-radius: 50%;
+  background: rgb(220, 220, 220);
+}
+#LinkTop:hover {
+  background-color: #E8B320;
+  border: 1px solid var(--culoare_border2);
+  opacity: 1;
 }
 
-footer a[href^="https"]{
-    background-image: radial-gradient(circle at center, var(--culoare_border2) 40%, rgb(241, 234, 95) ,transparent 80%,transparent 100%);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 0%;
-    transition: background-size 1s linear; 
+/*Etapa 3 pct c*/
+header {
+  margin-top: var(--spatiere_sus_header);
+  background-color: var(--culoare_evidentiere2);
+  border: var(--culoare_evidentiere1) 5px solid;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px black;
+  padding: var(--pading-inside-grid);
 }
 
-footer a:hover {
-    background-size: 80%; 
-}
-
-#LoremIpsum7{
-   
-   block-size: flex;
-  
+footer {
+  background-color: var(--culoare_evidentiere2);
+  border: var(--culoare_evidentiere1) 5px solid;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px black;
+  padding: var(--pading-inside-grid);
 }

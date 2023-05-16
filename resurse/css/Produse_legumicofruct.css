@@ -30,7 +30,7 @@
 
 .grid-produse{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr  ;
     grid-gap:20px 20px;
     
     text-align: center;
@@ -38,9 +38,9 @@
 
 .grid-produse .produs{
     border-radius: 40px;
-    display: block;
+    
     overflow: hidden;
-    text-align: center;
+    
 }
 
 .selecteaza-cos{
@@ -55,5 +55,35 @@
 
 .selecteaza-cos>input{
     margin-left: 5px;
+    
 }
 
+
+
+.data_adaugare{
+    text-transform: capitalize;
+}
+
+.info-prod{
+    display: block;
+    grid-area: f-info;
+    margin-left: 10px;
+}
+
+.prefata-produs{
+   display: block;
+   grid-area: f-prefata;
+   margin-right: 10px;
+}
+
+.container-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "f-prefata f-info";
+    margin-top: 30px;
+}
+
+.categorie,.descriere,.pret,.calitate,.vitamine,.low_calorie{
+   font-weight: bold;
+   color:var(--culoare_border1);
+}

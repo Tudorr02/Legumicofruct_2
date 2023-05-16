@@ -34,20 +34,20 @@
                     <input id="i_rad1"  name="gr_rad" value="A" type="radio"/>
                 </label></p>
                 <p><label>B
-                    <input id="i_rad1"  name="gr_rad" value="B" type="radio"/>
+                    <input id="i_rad2"  name="gr_rad" value="B" type="radio"/>
                 </label></p>
                 <p><label>C
-                    <input id="i_rad1"  name="gr_rad" value="C" type="radio"/>
+                    <input id="i_rad3"  name="gr_rad" value="C" type="radio"/>
                 </label></p>
                 <p><label>D
-                    <input id="i_rad1"  name="gr_rad" value="D" type="radio"/>
+                    <input id="i_rad4"  name="gr_rad" value="D" type="radio"/>
                 </label></p>
                 <p><label>Toate
-                    <input id="i_rad1"  name="gr_rad" value="toate" type="radio"/>
+                    <input id="i_rad5"  name="gr_rad" value="toate" type="radio"/>
                 </label></p>
             </div>
 
-            <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="70"> <span id="infoRange">(0)</span></label>
+            <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="5"> <span id="infoRange">(0)</span></label><br>
             <label>Select simplu:
                 <select id="inp-categorie">
                     <option id="sel-toate" selected value="toate">toate</option>
@@ -69,19 +69,32 @@
             
             <div class="grid-produse">
                 <% for( let prod of locals.produse) { %>
-                    <article class="produs" >
-                        <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
-                        <div class="info-prod">
-                            <p class="pret">Pret: <span class="val-pret"><%- prod.pret%> RON</span></p>
-                            <p class="calorii">Calitate Nutritiva: <span class="val-cal_nutritiva"><%- prod.calitate_nutritiva%></span></p>
-                            <p class="gramaj">Gramaj: <span class="val-gramaj"><%- prod.gramaj%></span></p>
+                    <article id="ar_ent_<%- prod.id %>" class="produs" >
+                        <h3 class="nume">Nume : <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
+                       <div class="container-info">
+                            <div class="info-prod">
+                                <span class="pret">Pret : </span><span class="val-pret"><%- prod.pret%> RON</span><br>
+                                <span class="calitate">Calitate Nutritiva : </span><span class="val-cal_nutritiva"><%- prod.calitate_nutritiva%></span><br>
+                                <span class="vitamine">Vitamine :</span> <span class="val-vitamine"><%- prod.vitamine%></span><br>
+                                <time class="data_adaugare" datetime="<%-prod.data_adaugare.toISOString()%>">
+                                    <%-prod.data_adaugare.toLocaleDateString('ro-RO', {
+                                    day: 'numeric',
+                                    month: 'long',
+                                    year: 'numeric'
+                                    })%> [<%-prod.data_adaugare.toLocaleDateString('ro-RO', { weekday: 'long' })%>]
+                                </time><br>
+                                <span class="low_calorie">Produs zero-caloric :</span> <span class="val-low_calorie"><%- prod.low_calorie%></span><br>
+                            </div>
+                            <div class="prefata-produs">
+                                <span class="categorie">Categorie :</span> <span class="val-categorie"><%- prod.categorie%></span>
+                                <figure class="figure-rounded">
+                                    <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
+                                </figure>
+                                <span class="descriere">Descriere :</span> <span class="va-descriere"><%- prod.descriere%></span>
+                            </div>
                         </div>
-                        <p class="categorie">Categorie:<span class="val-categorie"><%- prod.categorie%></span></p>
-                        <figure class="figure-rounded">
-                            <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
-                        </figure>
                         <label class="selecteaza-cos">
-                            Selectează:
+                            Selectează :
                             <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
                         </label>
                     </article>
