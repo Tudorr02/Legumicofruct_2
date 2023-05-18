@@ -46,7 +46,48 @@
                     <input id="i_rad5"  name="gr_rad" value="toate" type="radio"/>
                 </label></p>
             </div>
+            <div class="c_vitamine" id="inp-vitamine">Vitamine:
 
+                <p><label>A
+                    <input id="i_checkbox1"  name="checkbox_vitamine" value="A" type="checkbox"/>
+                </label></p>
+                <p><label>B
+                    <input id="i_checkbox2"  name="checkbox_vitamine" value="B" type="checkbox"/>
+                </label></p>
+                <p><label>C
+                    <input id="i_checkbox3"  name="checkbox_vitamine" value="C" type="checkbox"/>
+                </label></p>
+                <p><label>D
+                    <input id="i_checkbox4"  name="checkbox_vitamine" value="D" type="checkbox"/>
+                </label></p>
+                <p><label>E
+                    <input id="i_checkbox5"  name="checkbox_vitamine" value="E" type="checkbox"/>
+                </label></p>
+                <p><label>K
+                    <input id="i_checkbox6"  name="checkbox_vitamine" value="K" type="checkbox"/>
+                </label></p>
+
+            </div>
+            <div>
+                <label>Select multiplu:</label>
+                <select multiple class="sel_multiplu">
+                    <% for (let opt of locals.optiuni) { %>
+                        <option value="<%- opt.unnest %>" selected><%- opt.unnest %> </option>
+                    <% } %>
+                    
+                    
+                </select>
+            </div>
+            <p><br></p>
+            <div class="datalist">
+                <label for="datalist_produse">Alege un tip de produs:</label>
+                <input list="d_produse" name="datalist_produse" id="dt">
+                <datalist id="d_produse">
+                    <% for (let opt of locals.optiuniMeniu) { %>
+                        <option value="<%- opt.unnest %>"></option>
+                    <% } %>
+                </datalist>
+            </div>
             <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="5"> <span id="infoRange">(0)</span></label><br>
             <label>Select simplu:
                 <select id="inp-categorie">
@@ -75,6 +116,9 @@
                             <div class="info-prod">
                                 <span class="pret">Pret : </span><span class="val-pret"><%- prod.pret%> RON</span><br>
                                 <span class="calitate">Calitate Nutritiva : </span><span class="val-cal_nutritiva"><%- prod.calitate_nutritiva%></span><br>
+                                <p style="display: none;">
+                                <span class="tip" >Tip :</span> <span class="val-tip"><%- prod.tip_produs%></span>
+                                </p>
                                 <span class="vitamine">Vitamine :</span> <span class="val-vitamine"><%- prod.vitamine%></span><br>
                                 <time class="data_adaugare" datetime="<%-prod.data_adaugare.toISOString()%>">
                                     <%-prod.data_adaugare.toLocaleDateString('ro-RO', {
