@@ -372,3 +372,17 @@ footer a:hover {
  block-size: flex;
 
 }
+
+#dialog-message_1,#dialog-message_2{
+  color: red;
+  margin-left: 5px;
+ 
+}
+#dialog-ok_1{
+  margin-left: 10px;
+ border-radius: 360px;
+}
+
+#input_nume{
+  display: flex;
+}

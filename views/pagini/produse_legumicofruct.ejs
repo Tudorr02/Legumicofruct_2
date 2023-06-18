@@ -27,7 +27,13 @@
         <section id="filtre_produse">
             <h3>Filtreaza produsele dupa :</h3>
 
-            <label> Nume: <input type="text" id="inp-nume"></label>
+            <label id="input_nume"> Nume: <input type="text" id="inp-nume">
+            <div id="custom-dialog_1" style="display: none;">
+                            
+                <p id="dialog-message_1">Numele introdus este gresit</p>
+                <button id="dialog-ok_1">OK</button>
+            </div>
+            </label>
             <div class="cal_nutritiva">Calitate nutritiva: 
                 
                 <p><label>A
@@ -45,6 +51,12 @@
                 <p><label>Toate
                     <input id="i_rad5"  name="gr_rad" value="toate" type="radio"/>
                 </label></p>
+
+                <div id="custom-dialog_2" style="display: none;">
+                            
+                    <p id="dialog-message_2">Selectati calitatea produsului pentru filtrare</p>
+                    
+                </div>
             </div>
             <div class="c_vitamine" id="inp-vitamine">Vitamine:
 
@@ -100,10 +112,13 @@
             <div class="buttons">
             <button id="filtrare">Filtreaza</button> 
             <button id="resetare">Reseteaza</button>
-            <button id="sortCrescNume">Sorteaza crescator dupa pret si nume</button>
-            <button id="sortDescrescNume">Sorteaza descrescator dupa pret si nume</button>
+            <button id="sortCrescNume">Sorteaza crescator dupa categorie si pret</button>
+            <button id="sortDescrescNume">Sorteaza descrescator dupa categorie si pret</button>
+            <button id="suma">Calculeaza suma totala</button> 
+
             </div>
-           
+           <div class="Mesaj-dinamic" style="display:none">Suma totala: <span class="valoare_suma"></span>
+            </div>
         </section>
 
         <section id="produse">
@@ -114,7 +129,7 @@
                         <h3 class="nume">Nume : <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
                        <div class="container-info">
                             <div class="info-prod">
-                                <span class="pret">Pret : </span><span class="val-pret"><%- prod.pret%> RON</span><br>
+                                <span class="pret">Pret : </span><span class="val-pret"><%- prod.pret%> </span>RON<br>
                                 <span class="calitate">Calitate Nutritiva : </span><span class="val-cal_nutritiva"><%- prod.calitate_nutritiva%></span><br>
                                 <p style="display: none;">
                                 <span class="tip" >Tip :</span> <span class="val-tip"><%- prod.tip_produs%></span>

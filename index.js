@@ -309,7 +309,7 @@ function afisareEroare(res,_identificator,_titlu,_text,_imagine){
 
 }
 
-
+   
 
 app.listen(8080);
 console.log("Server on");
