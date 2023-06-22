@@ -31,6 +31,18 @@ body{
 
 }
 
+body.dark{
+  --culoare_fundal: black; 
+  --culoare_grid: grey;
+  --culoare_hover_meniu: grey;
+  --culoare_text: white;
+  --culoare_funal_alba: white;
+  --culoare_border1: #2D6B3F;
+  --culoare_evidentiere1: #E67709;
+  --culoare_border2:#91FFB0;
+  --culoare_evidentiere2: #E8B320;
+}
+
 body{
   background-color: var(--culoare_fundal);
   color: var(--culoare_text);
