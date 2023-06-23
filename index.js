@@ -42,14 +42,14 @@ console.log("Folder Proiect", __dirname);
 console.log("Cale Fisier", __filename);
 console.log("Director de lucru", process.cwd());
 
-// vectorFoldere=["temp","temp1","backup"];
-// for(let folder of vectorFoldere){
-//     // let caleFolder=__dirname+"/"+folder;
-//     let caleFolder=path.join(__dirname,folder);
-//     if(!fs.existsSync()){
-//         fs.mkdirSync(caleFolder)
-//     }
-// }
+vectorFoldere=["temp","temp1","backup"];
+for(let folder of vectorFoldere){
+    // let caleFolder=__dirname+"/"+folder;
+    let caleFolder=path.join(__dirname,folder);
+    if(!fs.existsSync(caleFolder)){
+        fs.mkdirSync(caleFolder)
+    }
+}
 
 
 
