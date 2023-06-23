@@ -8,9 +8,7 @@
 }
 .cal_nutritiva>p{
     margin-left: 10px;
-    border: 3px solid var(--culoare_border1);
-    padding: 2px;
-    border-radius: 8px;
+   
 }
 #filtre_produse> h3{
         text-align: left;
@@ -107,5 +105,5 @@
   }
   
   .c_vitamine label{
-    margin-left: 5px;
+    margin-left: 10px;
   }

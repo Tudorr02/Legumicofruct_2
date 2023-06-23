@@ -15,6 +15,8 @@
     <%- include("../fragmente/head.ejs") %>
     <script type="text/javascript" src=/resurse/js/produse.js></script>
     <link rel="stylesheet" href="/resurse/css/Produse_legumicofruct.css" media="all"> 
+    <script type="text/javascript" src=/resurse/js/filtre.js></script>
+
 </head>
 
 <body >
@@ -25,99 +27,129 @@
     <main id="Produse_legumicofruct" > <!-- PUNCTUL 4 et 1-->
         <h2>Produse</h2>
         <section id="filtre_produse">
-            <h3>Filtreaza produsele dupa :</h3>
-
-            <label id="input_nume"> Nume: <input type="text" id="inp-nume">
-            <div id="custom-dialog_1" style="display: none;">
+            <div class="container">
+                <h3>Filtreaza produsele dupa :</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label id="input_nume"> Nume: <input type="text" id="inp-nume">
+                        <div id="custom-dialog_1" style="display: none;">
+                                        
+                            <p id="dialog-message_1">Numele introdus este gresit</p>
+                            <button id="dialog-ok_1" class="btn btn-outline-info">OK</button>
+                        </div>
+                        </label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="cal_nutritiva btn-group btn-group-toggle" data-toggle="buttons">Calitate nutritiva: 
                             
-                <p id="dialog-message_1">Numele introdus este gresit</p>
-                <button id="dialog-ok_1">OK</button>
-            </div>
-            </label>
-            <div class="cal_nutritiva">Calitate nutritiva: 
-                
-                <p><label>A
-                    <input id="i_rad1"  name="gr_rad" value="A" type="radio"/>
-                </label></p>
-                <p><label>B
-                    <input id="i_rad2"  name="gr_rad" value="B" type="radio"/>
-                </label></p>
-                <p><label>C
-                    <input id="i_rad3"  name="gr_rad" value="C" type="radio"/>
-                </label></p>
-                <p><label>D
-                    <input id="i_rad4"  name="gr_rad" value="D" type="radio"/>
-                </label></p>
-                <p><label>Toate
-                    <input id="i_rad5"  name="gr_rad" value="toate" type="radio"/>
-                </label></p>
+                            <p><label class="btn btn-outline-primary btn-sm" >A
+                                <input id="i_rad1"  name="gr_rad" value="A" type="radio" onclick="toggleRadio(this)"/>
+                            </label></p>
+                            <p><label class="btn btn-outline-primary btn-sm">B
+                                <input id="i_rad2"  name="gr_rad" value="B" type="radio" onclick="toggleRadio(this)"/>
+                            </label></p>
+                            <p><label class="btn btn-outline-primary btn-sm">C
+                                <input id="i_rad3"  name="gr_rad" value="C" type="radio" onclick="toggleRadio(this)"/>
+                            </label></p>
+                            <p><label class="btn btn-outline-primary btn-sm">D
+                                <input id="i_rad4"  name="gr_rad" value="D" type="radio" onclick="toggleRadio(this)"/>
+                            </label></p>
+                            <p><label class="btn btn-outline-primary btn-sm">Toate
+                                <input id="i_rad5"  name="gr_rad" value="toate" type="radio" onclick="toggleRadio(this)"/>
+                            </label></p>
 
-                <div id="custom-dialog_2" style="display: none;">
-                            
-                    <p id="dialog-message_2">Selectati calitatea produsului pentru filtrare</p>
-                    
+                            <div id="custom-dialog_2" style="display: none;">
+                                        
+                                <p id="dialog-message_2">Selectati calitatea produsului pentru filtrare</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="c_vitamine btn-group-toggle" id="inp-vitamine" >Vitamine:
+
+                            <p><label class="btn btn-outline-primary btn-sm" >A
+                                <input id="i_checkbox1"  name="checkbox_vitamine" value="A" type="checkbox"  onclick="toggleCheckbox(this)"/>
+                            </label ></p>
+                            <p><label class="btn btn-outline-primary btn-sm">B
+                                <input id="i_checkbox2"  name="checkbox_vitamine" value="B"  type="checkbox"  onclick="toggleCheckbox(this)"/>
+                            </label></p>
+                            <p><label class="btn btn-outline-primary btn-sm">C
+                                <input id="i_checkbox3"  name="checkbox_vitamine" value="C" type="checkbox"  onclick="toggleCheckbox(this)"/>
+                            </label></p>
+                            <p><label class="btn btn-outline-primary btn-sm">D
+                                <input id="i_checkbox4"  name="checkbox_vitamine" value="D" type="checkbox"  onclick="toggleCheckbox(this)"/>
+                            </label></p>
+                            <p><label class="btn btn-outline-primary btn-sm">E
+                                <input id="i_checkbox5"  name="checkbox_vitamine" value="E" type="checkbox" onclick="toggleCheckbox(this)"/>
+                            </label></p>
+                            <p><label class="btn btn-outline-primary btn-sm">K
+                                <input id="i_checkbox6"  name="checkbox_vitamine" value="K" type="checkbox" onclick="toggleCheckbox(this)"/>
+                            </label></p>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="c_vitamine" id="inp-vitamine">Vitamine:
+                
+                <div class="row"></div>
+                    <div>
+                        <label>Select multiplu:</label>
+                        <select multiple class="sel_multiplu">
+                            <% for (let opt of locals.optiuni) { %>
+                                <option value="<%- opt.unnest %>" selected><%- opt.unnest %> </option>
+                            <% } %>
+                            
+                            
+                        </select>
+                    </div>
+                    <p><br></p>
+                    <div class="datalist">
+                        <label for="datalist_produse">Alege un tip de produs:</label>
+                        <input list="d_produse" name="datalist_produse" id="dt">
+                        <datalist id="d_produse">
+                            <% for (let opt of locals.optiuniMeniu) { %>
+                                <option value="<%- opt.unnest %>"></option>
+                            <% } %>
+                        </datalist>
+                    </div>
+                    <label>Select simplu:
+                        <select id="inp-categorie">
+                            <option id="sel-toate" selected value="toate">toate</option>
+                            <% for (let opt of locals.optiuni) { %>
+                                <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                            <% } %>
+                        </select>
+                    </label>
+                </div>    
 
-                <p><label>A
-                    <input id="i_checkbox1"  name="checkbox_vitamine" value="A" type="checkbox"/>
-                </label></p>
-                <p><label>B
-                    <input id="i_checkbox2"  name="checkbox_vitamine" value="B" type="checkbox"/>
-                </label></p>
-                <p><label>C
-                    <input id="i_checkbox3"  name="checkbox_vitamine" value="C" type="checkbox"/>
-                </label></p>
-                <p><label>D
-                    <input id="i_checkbox4"  name="checkbox_vitamine" value="D" type="checkbox"/>
-                </label></p>
-                <p><label>E
-                    <input id="i_checkbox5"  name="checkbox_vitamine" value="E" type="checkbox"/>
-                </label></p>
-                <p><label>K
-                    <input id="i_checkbox6"  name="checkbox_vitamine" value="K" type="checkbox"/>
-                </label></p>
+                <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="5"> <span id="infoRange">(0)</span></label><br>
 
-            </div>
-            <div>
-                <label>Select multiplu:</label>
-                <select multiple class="sel_multiplu">
-                    <% for (let opt of locals.optiuni) { %>
-                        <option value="<%- opt.unnest %>" selected><%- opt.unnest %> </option>
-                    <% } %>
-                    
-                    
-                </select>
-            </div>
-            <p><br></p>
-            <div class="datalist">
-                <label for="datalist_produse">Alege un tip de produs:</label>
-                <input list="d_produse" name="datalist_produse" id="dt">
-                <datalist id="d_produse">
-                    <% for (let opt of locals.optiuniMeniu) { %>
-                        <option value="<%- opt.unnest %>"></option>
-                    <% } %>
-                </datalist>
-            </div>
-            <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="5"> <span id="infoRange">(0)</span></label><br>
-            <label>Select simplu:
-                <select id="inp-categorie">
-                    <option id="sel-toate" selected value="toate">toate</option>
-                    <% for (let opt of locals.optiuni) { %>
-                        <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
-                    <% } %>
-                </select>
-            </label>
-            <div class="buttons">
-            <button id="filtrare" class="btn btn-outline-primary">Filtreaza</button> 
-            <button id="resetare" class="btn btn-outline-primary">Reseteaza</button>
-            <button id="sortCrescNume" class="btn btn-outline-primary">Sorteaza crescator dupa categorie si pret</button>
-            <button id="sortDescrescNume" class="btn btn-outline-primary">Sorteaza descrescator dupa categorie si pret</button>
-            <button id="suma" class="btn btn-outline-primary">Calculeaza suma totala</button> 
+                <div class="buttons">
+                    <button id="filtrare" class="btn btn-primary btn-sm"> 
+                        <span class="d-none d-sm-inline">Filtrare</span>
+                        <span class="glyphicon bi bi-search"></span>
+                    </button> 
+                    <button id="resetare" class="btn btn-primary btn-sm">
+                        <span class="d-none d-sm-inline">Reseteaza</span>
+                        <span class="glyphiconbi bi-arrow-clockwise"></span>
+                    </button>
+                    <button id="sortCrescNume" class="btn btn-primary btn-sm">
+                        <span class="d-none d-sm-inline">Sorteaza crescator dupa categorie si pret</span>
+                        <span class="glyphiconbi bi-sort-up"></span>
+                    </button>
+                    <button id="sortDescrescNume" class="btn btn-primary btn-sm">
+                        <span class="d-none d-sm-inline">Sorteaza descrescator dupa categorie si pret</span>
+                        <span class="glyphiconbi bi-sort-down"></span>
+                    </button>
+                    <button id="suma" class="btn btn-primary btn-sm">
+                        <span class="d-none d-sm-inline">Calculeaza suma totala</span>
+                        <span class="glyphiconbi bi-currency-dollar"></span>
+                    </button> 
 
-            </div>
-           <div class="Mesaj-dinamic" style="display:none">Suma totala: <span class="valoare_suma"></span>
+                </div>
+                <div class="Mesaj-dinamic" style="display:none">Suma totala: <span class="valoare_suma"></span>
+                </div>
             </div>
         </section>
 

@@ -28,3 +28,6 @@ body{
     gap: 8px 8px; /* ETAPA 3 pct b*/
 }       
 
+.buttons > button{
+    margin-top: 5px;
+}

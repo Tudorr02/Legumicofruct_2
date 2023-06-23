@@ -2,6 +2,8 @@
  (
     $primary: #1b4627,
     $secondary: #E8B320,
+    
+   
 
     $grid-breakpoints: (
         
@@ -9,6 +11,7 @@
         md: 1100px,
     ),
 
+    $border-width: 3px,
     $border-radius:               .475rem ,
     $border-radius-sm:            .35rem ,
     $border-radius-lg:            .6rem ,

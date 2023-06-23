@@ -138,8 +138,22 @@ window.addEventListener("load",function(){
         for(let i=0;i< multiplu.length;i++)
             multiplu.options[i].selected=false;
 
+
+        let vradio=document.getElementsByName("gr_rad");
+        for(let r of vradio){
+            var label=r.parentNode;
+            label.classList.remove("btn-primary");
+            label.classList.add("btn-outline-primary");
+          
+        }
+        document.getElementById("i_rad5").parentNode.classList.remove("btn-outline-primary");
+        document.getElementById("i_rad5").parentNode.classList.add("btn-primary");
+
+            
         for(let c of vitamine){
             if(c.checked){
+                c.parentNode.classList.remove("btn-primary");
+                c.parentNode.classList.add("btn-outline-primary");
                 c.checked=false;
             }
         }
@@ -153,6 +167,8 @@ window.addEventListener("load",function(){
                 selectat.checked=false;
             prod.style.display="block";
         }
+
+        
     }
     }
 
