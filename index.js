@@ -8,6 +8,17 @@ const sass= require('sass');
 const ejs=require('ejs');
 const {Client}= require('pg');
 const e = require("express");
+const AccesBD=require("./module_proprii/accesbd.js");
+
+AccesBD.getInstanta().select(
+    { tabel: "produse",
+     campuri:["nume","pret"],
+     conditiiAnd:["pret>2"]},
+     function(err,rez){
+        console.log(err);
+        console.log(rez);
+     }
+     )
 
 var client= new Client({database:"legumicofruct",
         user:"legumicofruct",

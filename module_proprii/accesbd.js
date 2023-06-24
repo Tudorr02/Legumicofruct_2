@@ -21,17 +21,17 @@ class AccesBD{
     }
 
     initLocal(){
-        this.client= new Client({database:"laborator",
-            user:"irina", 
-            password:"irina", 
+        this.client= new Client({database:"legumicofruct",
+            user:"legumicofruct", 
+            password:"admin", 
             host:"localhost", 
             port:5432});
-        this.client2= new Pool({database:"laborator",
-                user:"irina", 
-                password:"irina", 
-                host:"localhost", 
-                port:5432});
-        this.client.connect();
+        // this.client2= new Pool({database:"laborator",
+        //         user:"irina", 
+        //         password:"irina", 
+        //         host:"localhost", 
+        //         port:5432});
+         this.client.connect();
     }
 
     getClient(){
@@ -114,6 +114,7 @@ class AccesBD{
         this.client.query(comanda,[val1, val2],callback)
 
         */
+       console.log("aici este ce vreau:",comanda);
         this.client.query(comanda,parametriQuery, callback)
     }
     async selectAsync({tabel="",campuri=[],conditiiAnd=[]} = {}){
