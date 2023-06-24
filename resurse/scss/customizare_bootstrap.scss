@@ -1,12 +1,13 @@
 @use '../../node_modules/bootstrap/scss/bootstrap.scss' with
  (
     $primary: #1b4627,
+    
     $secondary: #E8B320,
     
    
 
     $grid-breakpoints: (
-        
+        xs:0,
         sm: 855px,
         md: 1100px,
     ),
@@ -20,9 +21,18 @@
    
     $font-family-base: "Kalam",
     $btn-font-family: "Segoe UI",
-    $headings-font-family: "Segoe UI"     
+    $headings-font-family: "Segoe UI"  ,   
 
-     
+    
+    $form-range-track-bg: #E8B320,
+    $form-range-thumb-width:          1.5rem,
+    $form-range-thumb-height: 1.5rem,
+    $form-range-thumb-bg:#1b4627,
+    $form-range-track-width: 60%, // Set the width of the track
+    
+    
+   
+
 )
 
 

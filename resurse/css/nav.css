@@ -25,6 +25,7 @@ ul.meniu > li {
   width: var(--latime-buton);
 }
 
+
 ul.meniu li {
   height: var(--inaltime-meniu);
   background-color: var(--culoare-meniu);
@@ -99,3 +100,4 @@ ul.meniu ul {
     transform: scaleY(1);
   }
 }
+

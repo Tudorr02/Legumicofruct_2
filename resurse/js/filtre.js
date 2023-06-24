@@ -11,9 +11,10 @@ function toggleRadio(radio) {
     
     let vradio=document.getElementsByName("gr_rad");
     for(let r of vradio){
-        var label=radio.parentNode;
+        
+        var label=r.parentNode;
         if (r.checked) {
-            
+            console.log(r);
             label.classList.remove("btn-outline-primary");
             label.classList.add("btn-primary");
         }

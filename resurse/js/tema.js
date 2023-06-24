@@ -2,16 +2,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Verifica daca tema intunecata este setata in localStorage.
     let tema = localStorage.getItem("tema");
-
+    
     // Daca tema exista in localStorage (adica a fost setata anterior), executa urmatoarele instructiuni
     if (tema) {
-
+        //console.log(tema);
        // Adauga clasa 'dark' la elementul body al documentului pentru a activa tema intunecata
       document.body.classList.add("dark");
 
       // Daca tema intunecata este activata, ascunde iconul cu soare si afiseaza iconul cu luna
       document.getElementById("sun-icon").classList.add("d-none");
       document.getElementById("moon-icon").classList.remove("d-none");
+
+      
+
 
        // Seteaza comutatorul de tema in pozitia ON
       document.getElementById("tema").checked = true;
@@ -33,7 +36,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // Schimba iconurile
         sunIcon.classList.remove("d-none");
         moonIcon.classList.add("d-none");
-      } else {
+      } 
+      else {
 
         // Dacă clasa dark nu este prezenta, atunci tema luminoasă este activa, deci trebuie să comutăm la tema intunecata
         document.body.classList.add("dark");

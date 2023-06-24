@@ -14,7 +14,7 @@ body{
   --culoare_border1: #2D6B3F;
   --culoare_evidentiere1: #E67709;
   --culoare_border2:#91FFB0;
-  --culoare_evidentiere2: #E8B320;
+  --culoare_evidentiere2: #e8b320;
   --culoare_linktop: #20e873;
   --spatiere-pagina: 40px;/* ETAPA 3 pct a*/
   --pading-inside-grid: 15px;/* ETAPA 3 pct d*/
@@ -32,15 +32,15 @@ body{
 }
 
 body.dark{
-  --culoare_fundal: black; 
-  --culoare_grid: grey;
-  --culoare_hover_meniu: grey;
+  --culoare_fundal: #1E857D; 
+  --culoare_grid:#34947B;
+  --culoare_hover_meniu: #34947B;
   --culoare_text: white;
   --culoare_funal_alba: white;
-  --culoare_border1: #2D6B3F;
-  --culoare_evidentiere1: #E67709;
+  --culoare_border1: #17767A;
+  --culoare_evidentiere1: #5C78AA;
   --culoare_border2:#91FFB0;
-  --culoare_evidentiere2: #E8B320;
+  --culoare_evidentiere2: #404756;
 }
 
 body{
@@ -167,7 +167,7 @@ h3{
 
 .container-iframe >iframe{
   
-  border:#E8B320 var(--border-iframe-video) solid;
+  
   border-radius: 8px;
   align-items: center;
   

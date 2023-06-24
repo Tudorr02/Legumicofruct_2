@@ -27,46 +27,53 @@
     <main id="Produse_legumicofruct" > <!-- PUNCTUL 4 et 1-->
         <h2>Produse</h2>
         <section id="filtre_produse">
-            <div class="container">
-                <h3>Filtreaza produsele dupa :</h3>
-                <div class="row">
-                    <div class="col-md-4">
-                        <label id="input_nume"> Nume: <input type="text" id="inp-nume">
-                        <div id="custom-dialog_1" style="display: none;">
-                                        
-                            <p id="dialog-message_1">Numele introdus este gresit</p>
-                            <button id="dialog-ok_1" class="btn btn-outline-info">OK</button>
-                        </div>
-                        </label>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="cal_nutritiva btn-group btn-group-toggle" data-toggle="buttons">Calitate nutritiva: 
+            <h3>Filtreaza produsele dupa :</h3>
+            <div class="container-fluid">
+                
+                <div class="row ">
+                    <div class="col nume">
+                        <div class="nume_display">
+                            <label id="input_nume"> Nume: <input type="text" id="inp-nume">
+                            </label>
                             
-                            <p><label class="btn btn-outline-primary btn-sm" >A
-                                <input id="i_rad1"  name="gr_rad" value="A" type="radio" onclick="toggleRadio(this)"/>
-                            </label></p>
-                            <p><label class="btn btn-outline-primary btn-sm">B
-                                <input id="i_rad2"  name="gr_rad" value="B" type="radio" onclick="toggleRadio(this)"/>
-                            </label></p>
-                            <p><label class="btn btn-outline-primary btn-sm">C
-                                <input id="i_rad3"  name="gr_rad" value="C" type="radio" onclick="toggleRadio(this)"/>
-                            </label></p>
-                            <p><label class="btn btn-outline-primary btn-sm">D
-                                <input id="i_rad4"  name="gr_rad" value="D" type="radio" onclick="toggleRadio(this)"/>
-                            </label></p>
-                            <p><label class="btn btn-outline-primary btn-sm">Toate
-                                <input id="i_rad5"  name="gr_rad" value="toate" type="radio" onclick="toggleRadio(this)"/>
-                            </label></p>
-
-                            <div id="custom-dialog_2" style="display: none;">
-                                        
-                                <p id="dialog-message_2">Selectati calitatea produsului pentru filtrare</p>
-                                
+                            <div id="custom-dialog_1" style="display: none;">
+                                            
+                                <p id="dialog-message_1">Numele introdus este gresit</p>
+                                <button id="dialog-ok_1" class="btn btn-outline-info btn-sm">OK</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col">
+                        <div class="cal_nutritiva btn-group btn-group-toggle" data-toggle="buttons">Calitate nutritiva: 
+                           <div class="radio_display">
+                                <div class="cal_nutritiva"> 
+                                    <p><label class="btn btn-outline-primary btn-sm" >A
+                                        <input id="i_rad1"  name="gr_rad" value="A" type="radio" onclick="toggleRadio(this)"/>
+                                    </label></p>
+                                    <p><label class="btn btn-outline-primary btn-sm">B
+                                        <input id="i_rad2"  name="gr_rad" value="B" type="radio" onclick="toggleRadio(this)"/>
+                                    </label></p>
+                                    <p><label class="btn btn-outline-primary btn-sm">C
+                                        <input id="i_rad3"  name="gr_rad" value="C" type="radio" onclick="toggleRadio(this)"/>
+                                    </label></p>
+                                    <p><label class="btn btn-outline-primary btn-sm">D
+                                        <input id="i_rad4"  name="gr_rad" value="D" type="radio" onclick="toggleRadio(this)"/>
+                                    </label></p>
+                                    <p><label class="btn btn-outline-primary btn-sm">Toate
+                                        <input id="i_rad5"  name="gr_rad" value="toate" type="radio" onclick="toggleRadio(this)"/>
+                                    </label></p>
+                                </div>
+                                <div id="custom-dialog_2" style="display: none;">
+                                            
+                                    <p id="dialog-message_2">Selectati calitatea produsului pentru filtrare</p>
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col">
                         <div class="c_vitamine btn-group-toggle" id="inp-vitamine" >Vitamine:
 
                             <p><label class="btn btn-outline-primary btn-sm" >A
@@ -92,19 +99,22 @@
                     </div>
                 </div>
                 
-                <div class="row"></div>
-                    <div>
-                        <label>Select multiplu:</label>
-                        <select multiple class="sel_multiplu">
-                            <% for (let opt of locals.optiuni) { %>
-                                <option value="<%- opt.unnest %>" selected><%- opt.unnest %> </option>
-                            <% } %>
-                            
-                            
-                        </select>
+                <div class="row">
+                    
+                    <div class="col">
+                        <label id="select_multiplu">Select multiplu:
+                            <select multiple class="sel_multiplu">
+                                <% for (let opt of locals.optiuni) { %>
+                                    <option value="<%- opt.unnest %>" selected><%- opt.unnest %> </option>
+                                <% } %>
+                                
+                                
+                            </select>
+                        </label>
                     </div>
-                    <p><br></p>
-                    <div class="datalist">
+                    
+                    <!-- <p><br></p> -->
+                    <div class="datalist col">
                         <label for="datalist_produse">Alege un tip de produs:</label>
                         <input list="d_produse" name="datalist_produse" id="dt">
                         <datalist id="d_produse">
@@ -113,18 +123,24 @@
                             <% } %>
                         </datalist>
                     </div>
-                    <label>Select simplu:
-                        <select id="inp-categorie">
-                            <option id="sel-toate" selected value="toate">toate</option>
-                            <% for (let opt of locals.optiuni) { %>
-                                <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
-                            <% } %>
-                        </select>
-                    </label>
+                    <div class="col">
+                        <label>Select simplu:
+                            <select id="inp-categorie">
+                                <option id="sel-toate" selected value="toate">toate</option>
+                                <% for (let opt of locals.optiuni) { %>
+                                    <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                                <% } %>
+                            </select>
+                        </label>
+                    </div>
                 </div>    
 
-                <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="5"> <span id="infoRange">(0)</span></label><br>
-
+                <div class="row">
+                    <div class="col range">
+                    <label id="label_range" class="form-label">Pret minim: </label><input type="range"  class="form-range" id="inp-pret" value="0" min="0"  max="5"> <span id="infoRange">(0)</span><br>
+                </div>
+                
+                </div>
                 <div class="buttons">
                     <button id="filtrare" class="btn btn-primary btn-sm"> 
                         <span class="d-none d-sm-inline">Filtrare</span>

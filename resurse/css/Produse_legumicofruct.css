@@ -100,10 +100,43 @@
     display: flex;
   }
   
-  .c_vitamine{
+  .c_vitamine,.radios{
     display: flex;
   }
   
   .c_vitamine label{
     margin-left: 10px;
   }
+
+  
+  
+.row{
+    margin-top: 20px;
+}
+
+
+
+.col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nume_display,.radio_display{
+    display: block;
+
+}
+.range{
+    margin-bottom: 30px;
+}
+
+#label_range{
+    display: flex;
+}
+
+.form-range{
+    width: 60%;
+    padding:10px
+}
+
+

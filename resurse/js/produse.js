@@ -133,7 +133,7 @@ window.addEventListener("load",function(){
         document.getElementById("dt").value="";
         let multiplu= document.getElementsByClassName("sel_multiplu")[0];
         document.getElementsByClassName("Mesaj-dinamic")[0].style.display="none";
-        
+        document.getElementById("dialog-message_2").style.display="none";
 
         for(let i=0;i< multiplu.length;i++)
             multiplu.options[i].selected=false;
