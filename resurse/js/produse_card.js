@@ -8,6 +8,11 @@ window.addEventListener("load",function(){
         let val_nume=document.getElementById("inp-nume").value.toLowerCase();
 
         var produse=document.getElementsByClassName("produs_card");
+
+        
+
+
+    
         let radiobuttons= document.getElementsByName("gr_rad");
         let val_cal_nutritiva="ABCD";
         let val_pret=document.getElementById("inp-pret").value;
@@ -47,74 +52,81 @@ window.addEventListener("load",function(){
             }
         }
 
-        //console.log(val_vitamine);
-
-
-
-        for(let prod of produse){
-                prod.style.display="none";
-
-                let nume=prod.getElementsByClassName("val-nume")[0].innerHTML.toLowerCase();
-                let pret=parseFloat(prod.getElementsByClassName("val-pret")[0].innerHTML);
-
-                let cond_nume= (nume.startsWith(val_nume ));
-
-                if(val_nume.match(/\d/)!==null){
-                    let dialog=document.getElementById("custom-dialog_1");
-                    dialog.style.display="flex";
-
-                    document.getElementById("dialog-ok_1").onclick=function(){
-                        dialog.style.display="none";
-                        document.getElementById("inp-nume").value="";
-                        
-                    }
-                    
-                }
-
-                if(!nr_radiobuttons){
-                    let dialog=document.getElementById("custom-dialog_2");
-                    dialog.style.display="flex";
-                    
-                }else{
-                    document.getElementById("custom-dialog_2").style.display="none";
-                }
-                
-                   
-                let cond_calitate_nutritiva=(val_cal_nutritiva.includes(prod.getElementsByClassName("val-cal_nutritiva")[0].innerHTML));
-                let cond_pret= ( pret >=val_pret);
-                let cond_categ= (val_categ=="toate"|| prod.getElementsByClassName("val-categorie")[0].innerHTML==val_categ);
-                let cond_vit=false;
-                let prod_vitamine= [];
-                let cond_datalist=(datalist.length==0 || prod.getElementsByClassName("val-tip")[0].innerHTML==datalist);
-                let cond_s_multiplu=(valori_s_multiplu.length==0);
-
-                if(valori_s_multiplu.length>0){
-                    let produse_multiplu =prod.getElementsByClassName("val-categorie")[0].innerHTML;
-                    cond_s_multiplu=(valori_s_multiplu.includes(produse_multiplu));
-                    
-                }
-
-                if(val_vitamine.length==0){
-                    cond_vit=true;
-                }
-
-                if(val_vitamine.length >0){
-                    prod_vitamine=prod.getElementsByClassName("val-vitamine")[0].innerHTML.split(",");
-
-                    for(let vit of prod_vitamine){
-                        if(val_vitamine.includes(vit))
-                            cond_vit=true;
-                    }
-                    //console.log(prod_vitamine);
-
-                    
-                }
+            console.log(val_vitamine);
 
             
+            let t = 100; // Durata în milisecunde
+            let index = 0;
 
-                if(cond_nume && cond_calitate_nutritiva && cond_pret && cond_categ && cond_vit && cond_datalist && cond_s_multiplu){
-                    prod.style.display="block";
+        for(let prod of produse){
+            prod.style.display="none";
+
+            let nume=prod.getElementsByClassName("val-nume")[0].innerHTML.toLowerCase();
+            let pret=parseFloat(prod.getElementsByClassName("val-pret")[0].innerHTML);
+
+            let cond_nume= (nume.startsWith(val_nume ));
+
+            if(val_nume.match(/\d/)!==null){
+                let dialog=document.getElementById("custom-dialog_1");
+                dialog.style.display="flex";
+
+                document.getElementById("dialog-ok_1").onclick=function(){
+                    dialog.style.display="none";
+                    document.getElementById("inp-nume").value="";
+                    
                 }
+                
+            }
+
+            if(!nr_radiobuttons){
+                let dialog=document.getElementById("custom-dialog_2");
+                dialog.style.display="flex";
+                
+            }else{
+                document.getElementById("custom-dialog_2").style.display="none";
+            }
+            
+                
+            let cond_calitate_nutritiva=(val_cal_nutritiva.includes(prod.getElementsByClassName("val-cal_nutritiva")[0].innerHTML));
+            let cond_pret= ( pret >=val_pret);
+            let cond_categ= (val_categ=="toate"|| prod.getElementsByClassName("val-categorie")[0].innerHTML==val_categ);
+            let cond_vit=false; 
+            let prod_vitamine= [];
+            let cond_datalist=(datalist.length==0 || prod.getElementsByClassName("val-tip")[0].innerHTML==datalist);
+            let cond_s_multiplu=(valori_s_multiplu.length==0);
+
+            if(valori_s_multiplu.length>0){
+                let produse_multiplu =prod.getElementsByClassName("val-categorie")[0].innerHTML;
+                cond_s_multiplu=(valori_s_multiplu.includes(produse_multiplu));
+                
+            }
+
+            if(val_vitamine.length==0){
+                cond_vit=true;
+            }
+
+            if(val_vitamine.length >0){
+                prod_vitamine=prod.getElementsByClassName("val-vitamine")[0].innerHTML.split(",");
+
+                for(let vit of prod_vitamine){
+                    if(val_vitamine.includes(vit))
+                        cond_vit=true;
+                }
+                //console.log(prod_vitamine);
+
+                
+            }
+
+        
+
+            if(cond_nume && cond_calitate_nutritiva && cond_pret && cond_categ && cond_vit && cond_datalist && cond_s_multiplu){
+                setTimeout(function() {
+                    
+                    prod.style.display = "block";
+                   
+
+                }, t * index++);
+            }
                 
         }
     }
