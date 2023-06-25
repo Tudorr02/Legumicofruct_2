@@ -281,6 +281,7 @@ tr:hover{
 }
 
 #LinkTop{
+  z-index: 999;
   transform: rotate(45deg);
   position:fixed;
 bottom:0.7em;
@@ -391,3 +392,15 @@ footer a:hover {
 
 }
 
+.aranjare_sub_meniu{
+  display: flex;
+  justify-content: space-between;
+}
+.last_page{
+ text-align: right;
+ display: none;
+ 
+}
+.last_page>a{
+  color: white;
+}

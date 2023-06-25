@@ -28,7 +28,7 @@
 
 .grid-produse{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr  ;
+    grid-template-columns: 1fr 1fr 1fr ;
     grid-gap:20px 20px;
     
     text-align: center;
@@ -81,7 +81,7 @@
     margin-top: 30px;
 }
 
-.categorie,.descriere,.pret,.calitate,.vitamine,.low_calorie{
+.categorie,.descriere,.pret,.calitate,.vitamine,.low_calorie,.data_produs{
    font-weight: bold;
    color:var(--culoare_border1);
 }
@@ -140,3 +140,27 @@
 }
 
 
+.card,.list-group>li{
+    background-color: var(--culoare_grid);
+    color: white;
+}
+
+.selecteaza_card{
+    background-color: var(--culoare_evidentiere2);
+    font-size: 1.2rem;
+    
+   
+}
+
+.grid-card{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+    justify-content: center;
+  
+    padding-left: var(--spatiere-pagina);/* ETAPA 3 pct a*/
+    padding-right: var(--spatiere-pagina);
+    
+   
+    
+}

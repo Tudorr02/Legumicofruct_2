@@ -172,7 +172,7 @@
         <section id="produse">
             
             <div class="grid-produse">
-                <% for( let prod of locals.produse) { %>
+                <!-- <% for( let prod of locals.produse) { %>
                     <article id="ar_ent_<%- prod.id %>" class="produs" >
                         <h3 class="nume">Nume : <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
                        <div class="container-info">
@@ -205,9 +205,15 @@
                             <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
                         </label>
                     </article>
-                <% }%>
+
+
+                <% }%> -->
+
+               <%- include("../fragmente/carduri_produse.ejs") %>
             </div>
         </section>
+
+        
 
     </main>
 
@@ -216,4 +222,4 @@
   
 
 </body>
-</html>
+</html>     

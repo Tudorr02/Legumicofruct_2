@@ -139,7 +139,7 @@ class Utilizator{
     static getUtilizDupaUsername (username,obparam, proceseazaUtiliz){
         if (!username) return null;
         let eroare=null;
-        AccesBD.getInstanta(Utilizator.tipConexiune).select({tabel:"utilizatori",campuri:['*'],conditiiAnd:[`username=$1`]}, function (err, rezSelect){
+        AccesBD.getInstanta(Utilizator.tipConexiune).select({tabel:"utilizatori",campuri:['*'],conditiiAnd:[`username='${username}'`]}, function (err, rezSelect){
             if(err){
                 console.error("Utilizator:", err);
                 console.log("Utilizator",rezSelect.rows.length);
@@ -152,7 +152,7 @@ class Utilizator{
             //constructor({id, username, nume, prenume, email, rol, culoare_chat="black", poza}={})
             let u= new Utilizator(rezSelect.rows[0])
             proceseazaUtiliz(u, obparam, eroare);
-        }, [username]);
+        });
     }
 
     areDreptul(drept){

@@ -1,0 +1,42 @@
+
+<script src="/resurse/js/produse_card.js"></script>
+
+<div class="grid-card">
+    <% for( let prod of locals.produse) { %>
+        
+            <article id="ar_ent_<%- prod.id %>" class="produs_card" >
+                <div class="card" style="width: 20rem;">
+                    <div class="card-body">
+                        <h2 class="card-title nume"><a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h2>
+                        <a href="/produs/<%-prod.id %>" ><img  class="card-img-top" src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
+
+                        <p class="card-text"> <span class="va-descriere"><%- prod.descriere%></span></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><span class="categorie">Categorie :</span> <span class="val-categorie"><%- prod.categorie%></span></li>
+                        <li class="list-group-item"><span class="calitate">Calitate Nutritiva : </span><span class="val-cal_nutritiva"><%- prod.calitate_nutritiva%></span></li>
+                        <li class="list-group-item"><span class="vitamine">Vitamine :</span> <span class="val-vitamine"><%- prod.vitamine%></span></li>
+                        
+                        <li class="list-group-item"><span class="data_produs">Data adaugare :</span><time class="data_adaugare" datetime="<%-prod.data_adaugare.toISOString()%>">
+                            <%-prod.data_adaugare.toLocaleDateString('ro-RO', {
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric'
+                            })%> [<%-prod.data_adaugare.toLocaleDateString('ro-RO', { weekday: 'long' })%>]
+                        </time></li>
+                        <li class="list-group-item"><span class="low_calorie">Produs zero-caloric :</span> <span class="val-low_calorie"><%- prod.low_calorie%></span></li>
+                        <li class="list-group-item"><span class="pret">Pret : </span><span class="val-pret"><%- prod.pret%> </span>RON</li>
+                        
+
+                    </ul>
+                    <div class="card-footer selecteaza_card"><label>
+                        Selectează :
+                        <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                        
+                    </label></div>
+                </div>
+            </article>
+       
+    <% }%>
+</div>
+
