@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <title > 
+            Legumicofruct
+        </title> <!-- PUNCTUL 2  et 1-->
+    
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- va fi explicat când ajungem la CSS -->
+           <!-- PUNCTUL 9  et 1-->
+        <meta name="keywords" content="Legumicofruct,fructe si legume proaspete,sănătatea,furnizori locali,
+           productia locala,pachetele noastre promotionale,pachetele promotionale,"><!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->
+        <meta name="description" content="Magazin online de legume si fructe.LIVRARE IN 48 ORE!"><!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
+        <%- include("../fragmente/head.ejs") %>
+        <script src="/resurse/js/inregistrare.js"></script>
+    </head>
+    <body>
+    <%- include("../fragmente/header") %>
+
+    <main>
+        <div class="afisaj">
+            <h1>Inregistrare utilizator</h1>
+            <% if(!locals.raspuns) { %>    
+
+                <%-include("../fragmente/formular", {action: "/inregistrare"}) %>
+            <% } %>
+            
+            <% if(locals.raspuns) { %>
+            <%- locals.raspuns+"<br/>"%>
+            <% } %>
+            <% if(locals.err) { %>
+            <%- locals.err %>
+            <% } %>
+        </div>
+    </main>
+
+   
+        <%- include("../fragmente/footer.ejs") %>
+    
+
+</body>
+</html>

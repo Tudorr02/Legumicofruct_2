@@ -7,9 +7,11 @@ CREATE TABLE IF NOT EXISTS utilizatori (
    nume VARCHAR(100) NOT NULL,
    prenume VARCHAR(100) NOT NULL,
    parola VARCHAR(500) NOT NULL,
+   reintroducere_parola VARCHAR(500) NOT NULL,
    rol roluri NOT NULL DEFAULT 'comun',
    email VARCHAR(100) NOT NULL,
-   culoare_chat VARCHAR(50) NOT NULL,
+   an_nastere integer, --adaugat de mine
+   culoare_chat VARCHAR(50) DEFAULT 'black',
    data_adaugare TIMESTAMP DEFAULT current_timestamp,
    cod character varying(200),
    confirmat_mail boolean DEFAULT false,
@@ -24,3 +26,6 @@ CREATE TABLE IF NOT EXISTS accesari (
    data_accesare TIMESTAMP DEFAULT current_timestamp
 );
 
+GRANT ALL PRIVILEGES ON DATABASE legumicofruct TO legumicofruct ;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO legumicofruct;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO legumicofruct;

@@ -10,12 +10,12 @@ class Utilizator{
     static tipConexiune="local";
     static tabel="utilizatori"
     static parolaCriptare="tehniciweb";
-    static emailServer="test.tweb.node@gmail.com";
+    static emailServer="testweb677@gmail.com";
     static lungimeCod=64;
     static numeDomeniu="localhost:8080";
     #eroare;
 
-    constructor({id, username, nume, prenume, email, parola, rol, culoare_chat="black", poza}={}) {
+    constructor({id, username, nume, prenume, email, parola, reintroducere_parola, rol, an_nastere,culoare_chat="black", poza}={}) {
         this.id=id;
 
         //optional sa facem asta in constructor
@@ -68,6 +68,7 @@ class Utilizator{
         let parolaCriptata=Utilizator.criptareParola(this.parola);
         let utiliz=this;
         let token=parole.genereazaToken(100);
+        console.log("ACCES BD INAINTE DE INSTANTA");
         AccesBD.getInstanta(Utilizator.tipConexiune).insert({tabel:Utilizator.tabel,
             campuri:{
                 username:this.username,
@@ -76,11 +77,15 @@ class Utilizator{
                 parola:parolaCriptata,
                 email:this.email,
                 culoare_chat:this.culoare_chat,
+                reintroducere_parola:this.reintroducere_parola,
+                an_nastere:this.an_nastere,
                 cod:token,
                 poza:this.poza}
             }, function(err, rez){
             if(err)
                 console.log(err);
+
+                console.log("ACCES BD DUPA INSTANTA");
             
             utiliz.trimiteMail("Te-ai inregistrat cu succes","Username-ul tau este "+utiliz.username,
             `<h1>Salut!</h1><p style='color:blue'>Username-ul tau este ${utiliz.username}.</p> <p><a href='http://${Utilizator.numeDomeniu}/cod/${utiliz.username}/${token}'>Click aici pentru confirmare</a></p>`,
@@ -96,7 +101,7 @@ class Utilizator{
             secure: false,
             auth:{//date login 
                 user:Utilizator.emailServer,
-                pass:"rwgmgkldxnarxrgu"
+                pass:"iogcrxdexmbehtsy"//"rwgmgkldxnarxrgu"
             },
             tls:{
                 rejectUnauthorized:false

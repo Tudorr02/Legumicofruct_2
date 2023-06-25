@@ -10,6 +10,11 @@ const {Client}= require('pg');
 const e = require("express");
 const AccesBD=require("./module_proprii/accesbd.js");
 
+const formidable =require("formidable");
+const session=require('express-session');
+const {Utilizator}=require("./module_proprii/utilizator.js");
+const Drepturi= require("./module_proprii/drepturi.js");
+
 AccesBD.getInstanta().select(
     { tabel: "produse",
      campuri:["nume","pret"],
@@ -45,6 +50,7 @@ client.query("select * from unnest(enum_range(null::tipuri_produse))",function(e
     if(err){
         console.log(err);
     }else{
+        
         obGlobal.optiuniMeniu=rezCategorie.rows;
     }
 });
@@ -53,7 +59,7 @@ console.log("Folder Proiect", __dirname);
 console.log("Cale Fisier", __filename);
 console.log("Director de lucru", process.cwd());
 
-vectorFoldere=["temp","temp1","backup"];
+vectorFoldere=["temp","temp1","backup","poze_uploadate"];
 for(let folder of vectorFoldere){
     // let caleFolder=__dirname+"/"+folder;
     let caleFolder=path.join(__dirname,folder);
@@ -117,6 +123,7 @@ app.use("/*",function(req,res,next){
     res.locals.optiuniMeniu=obGlobal.optiuniMeniu;
     next();
 });
+
 app.use(/^\/resurse(\/[a-zA-Z0-9]*)*$/,function(req,res){
     afisareEroare(res,403);
 })
@@ -174,6 +181,92 @@ app.get("/produse_legumicofruct",function(req, res){
 
 });
 
+////PENTRU INREGISTRARE UTILIZATOR
+app.post("/inregistrare",function(req, res){
+    var username;
+    var poza;
+    console.log("ceva");
+    var formular= new formidable.IncomingForm()
+    formular.parse(req, function(err, campuriText, campuriFisier ){//4
+        console.log("Inregistrare:",campuriText);
+
+        console.log(campuriFisier);
+        var eroare="";
+
+        var utilizNou=new Utilizator();
+        try{
+            utilizNou.setareNume=campuriText.nume;
+            utilizNou.setareUsername=campuriText.username;
+            utilizNou.email=campuriText.email
+            utilizNou.prenume=campuriText.prenume
+            utilizNou.an_nastere=campuriText.an_nastere
+            utilizNou.reintroducere_parola=campuriText.reintroducere_parola
+            utilizNou.parola=campuriText.parola;
+            utilizNou.culoare_chat=campuriText.culoare_chat;
+            utilizNou.poza= poza;
+            Utilizator.getUtilizDupaUsername(campuriText.username, {}, function(u, parametru ,eroareUser ){
+                if (eroareUser==-1){//nu exista username-ul in BD
+                    utilizNou.salvareUtilizator();
+                    console.log("se salveaza utilizatoru");
+                }
+                else{
+                    eroare+="Mai exista username-ul";
+                }
+
+                if(!eroare){
+                    res.render("pagini/inregistrare", {raspuns:"Inregistrare cu succes!"})
+                    
+                }
+                else
+                    res.render("pagini/inregistrare", {err: "Eroare: "+eroare});
+            })
+            
+
+        }
+        catch(e){ 
+            console.log(e);
+            eroare+= "Eroare site; reveniti mai tarziu";
+            console.log(eroare);
+            res.render("pagini/inregistrare", {err: "Eroare: "+eroare})
+        }
+    
+
+
+
+    });
+    formular.on("field", function(nume,val){  // 1 
+	
+        console.log(`--- ${nume}=${val}`);
+		
+        if(nume=="username")
+            username=val;
+    }) 
+    formular.on("fileBegin", function(nume,fisier){ //2
+        console.log("fileBegin");
+		
+        console.log("FILE BEIN->NUME: ",nume);
+        console.log("FILE BEGIN->FISIER:",fisier);
+		//TO DO in folderul poze_uploadate facem folder cu numele utilizatorului
+        let folderUser=path.join(__dirname, "poze_uploadate",username);
+        //folderUser=__dirname+"/poze_uploadate/"+username
+        console.log("folder User" ,folderUser);
+        if (!fs.existsSync(folderUser))
+            fs.mkdirSync(folderUser);
+        fisier.filepath=path.join(folderUser, fisier.originalFilename)
+
+        console.log("FISIER.FILEPATH->",fisier.filepath);
+        poza=fisier.originalFilename;
+        console.log("poza",poza);
+        //fisier.filepath=folderUser+"/"+fisier.originalFilename
+
+    })    
+    formular.on("file", function(nume,fisier){//3
+        console.log("file");
+        console.log(nume,fisier);
+    }); 
+});
+
+
 
 app.get("/produs/:id",function(req, res){
     console.log(req.params);
@@ -189,6 +282,38 @@ app.get("/produs/:id",function(req, res){
             
     });
 });
+
+app.get("/logout", function(req, res){
+    req.session.destroy();
+    res.locals.utilizator=null;
+    res.render("pagini/logout");
+});
+
+
+app.get("/cod/:username/:token",function(req,res){
+    console.log(req.params);
+    try {
+        Utilizator.getUtilizDupaUsername(req.params.username,{res:res,token:req.params.token} ,function(u,obparam){
+            AccesBD.getInstanta().update(
+                {tabel:"utilizatori",
+                campuri:{confirmat_mail:'true'}, 
+                conditiiAnd:[`cod='${obparam.token}'`]}, 
+                function (err, rezUpdate){
+                    if(err || rezUpdate.rowCount==0){
+                        console.log("Cod:", err);
+                        afisareEroare(res,3);
+                    }
+                    else{
+                        res.render("pagini/confirmare.ejs");
+                    }
+                })
+        })
+    }
+    catch (e){
+        console.log(e);
+        renderError(res,2);
+    }
+})
 
 
 app.get("/*.ejs",function(req,res){
