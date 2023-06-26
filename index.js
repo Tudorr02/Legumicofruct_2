@@ -121,6 +121,10 @@ app.use("/node_modules", express.static(path.join(__dirname,"/node_modules")));
 
 app.use("/*",function(req,res,next){
     res.locals.optiuniMeniu=obGlobal.optiuniMeniu;
+    // res.locals.Drepturi=Drepturi;
+    // if (req.session.utilizator){
+    //     req.utilizator=res.locals.utilizator=new Utilizator(req.session.utilizator);
+    // }    
     next();
 });
 
@@ -141,6 +145,58 @@ app.get("/ceva",function(req,res){
 app.get(["/index","/","/home"],function(req,res){
     res.render("pagini/index",{ip:req.ip, imagini: obGlobal.obImagini.imagini});
 })
+
+// app.get(["/","/index","/home","/login"], async function(req, res){
+//     console.log("ceva");
+// })
+
+    
+//     let sir=req.session.mesajLogin;
+//     req.session.mesajLogin=null;
+
+//     client.query("select username, nume, prenume from utilizatori where id in (select distinct user_id from accesari where now()-data_accesare <= interval '5 minutes')",
+//         function(err, rez){
+//             let useriOnline=[];
+//             if(!err && rez.rowCount!=0)
+//                 useriOnline=rez.rows
+//             console.log(useriOnline);
+
+//             /////////////// am adaugat aici:
+//             var evenimente=[]
+//             var locatie="";
+            
+//             request('https://secure.geobytes.com/GetCityDetails?key=7c756203dbb38590a66e01a5a3e1ad96&fqcn=109.99.96.15', //se inlocuieste cu req.ip; se testeaza doar pe Heroku
+//                 function (error, response, body) {
+//                     locatie="Nu se poate detecta pentru moment."
+//                 if(error) {
+                    
+//                     console.error('eroare geobytes:', error)
+//                 }
+//                 else{
+//                     var obiectLocatie=JSON.parse(body);
+//                     console.log(obiectLocatie);
+//                     locatie=obiectLocatie.geobytescountry+" "+obiectLocatie.geobytesregion
+//                 }
+    
+//                 //generare evenimente random pentru calendar 
+                
+//                 var texteEvenimente=["Eveniment important", "Festivitate", "Prajituri gratis", "Zi cu soare", "Aniversare"];
+//                 dataCurenta=new Date();
+//                 for(i=0;i<texteEvenimente.length;i++){
+//                     evenimente.push({data: new Date(dataCurenta.getFullYear(), dataCurenta.getMonth(), Math.ceil(Math.random()*27) ), text:texteEvenimente[i]});
+//                 }
+//                 console.log(evenimente)
+//                 console.log("inainte",req.session.mesajLogin);
+
+//                 //////sfarsit zona adaugata:
+//                 res.render("pagini/index", {ip: req.ip, imagini:obGlobal.obImagini.imagini, mesajLogin:sir, useriOnline:useriOnline, evenimente:evenimente, locatie:locatie});
+
+//         });
+
+//     //adaugat si inchidere functie:
+//     });
+        
+// });
 
 //--------------PRODUSE-----------------
 app.get("/produse_legumicofruct",function(req, res){
@@ -168,7 +224,23 @@ app.get("/produse_legumicofruct",function(req, res){
                 }
                 else{
                     console.log(rez);
-                    res.render("pagini/produse_legumicofruct", {produse:rez.rows, optiuni:rezCategorie.rows});
+
+                    let minPrice = Infinity;
+                    let maxPrice = -Infinity;
+                    
+                    for (let i = 0; i < rez.rows.length; i++) {
+                    const produs = rez.rows[i];
+                    if (produs.pret < minPrice) {
+                        minPrice = produs.pret;
+                    }
+                    if (produs.pret > maxPrice) {
+                        maxPrice = produs.pret;
+                    }
+
+                    }
+                    minPrice-=0.1;
+                    maxPrice+=0.1;
+                    res.render("pagini/produse_legumicofruct", {produse:rez.rows, optiuni:rezCategorie.rows,minPrice,maxPrice});
                 }
             });
 

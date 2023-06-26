@@ -4,6 +4,11 @@ function toggleCheckbox(checkbox) {
         label.classList.remove("btn-outline-primary");
         label.classList.add("btn-primary");
       
+  }else{
+    var label=checkbox.parentNode;
+        label.classList.remove("btn-primary");
+        label.classList.add("btn-outline-primary");
+        
   }
 }
 
