@@ -210,41 +210,37 @@ app.get("/produse_legumicofruct",function(req, res){
     client.query("select * from unnest(enum_range(null::categ_produs))",function(err,rezCategorie){
         if(err){
             console.log(err);
-        }
-        else{
-            let conditieWhere="";    
-            if(req.query.tip)
-            conditieWhere=` where tip_produs='${req.query.tip}'`
-        
-            client.query("select * from produse "+conditieWhere , function( err, rez){
-                console.log(300)
-                if(err){
-                    console.log(err);
-                    afisareEroare(res, 2);
-                }
-                else{
-                    console.log(rez);
-
-                    let minPrice = Infinity;
-                    let maxPrice = -Infinity;
-                    
-                    for (let i = 0; i < rez.rows.length; i++) {
-                    const produs = rez.rows[i];
-                    if (produs.pret < minPrice) {
-                        minPrice = produs.pret;
+        }else{
+                let conditieWhere="";    
+                if(req.query.tip)
+                conditieWhere=` where tip_produs='${req.query.tip}'`
+            
+                client.query("select * from produse "+conditieWhere , function( err, rez){
+                    console.log(300)
+                    if(err){
+                        console.log(err);
+                        afisareEroare(res, 2);
                     }
-                    if (produs.pret > maxPrice) {
-                        maxPrice = produs.pret;
+                    else{
+                        client.query("select MIN(pret) AS min_price , MAX(pret) AS max_price FROM produse",function(err,rezPret){
+                            if (err) {
+                                console.log(err);
+                                afiseazaEroare(res, 2);
+                            }else{
+                                console.log(rez);
+                                
+                                res.render("pagini/produse_legumicofruct", {
+                                    produse:rez.rows, 
+                                    optiuni:rezCategorie.rows,
+                                    pret_minim:rezPret.rows[0].min_price,
+                                    pret_maxim:rezPret.rows[0].max_price});
+                            }
+                        });
+                        
                     }
+                });
 
-                    }
-                    minPrice-=0.1;
-                    maxPrice+=0.1;
-                    res.render("pagini/produse_legumicofruct", {produse:rez.rows, optiuni:rezCategorie.rows,minPrice,maxPrice});
-                }
-            });
-
-        }
+            }
     })
     
 

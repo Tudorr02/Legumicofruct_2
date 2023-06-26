@@ -158,10 +158,32 @@
     grid-gap: 2rem;
     justify-content: center;
   
-    padding-left: var(--spatiere-pagina);
-    padding-right: var(--spatiere-pagina);
-     
-   
-    
+    /* padding-left: var(--spatiere-pagina);
+    padding-right: var(--spatiere-pagina); */
+        
 }
 
+.produs_card{
+    width: 100%;
+    max-width: 20rem;
+}
+
+.card_smooth {
+    opacity: 1;
+    transform: translateY(0);
+    animation: scaleEffect 0.5s ease-in-out forwards;
+}
+
+@keyframes scaleEffect {
+    0% {
+        transform: scale(0.5);
+    }
+
+    70% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

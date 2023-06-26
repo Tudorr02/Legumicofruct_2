@@ -1,9 +1,15 @@
 
 window.addEventListener("load",function(){
    
-    document.getElementById("inp-pret").onchange=function(){
-        document.getElementById("infoRange").innerHTML=`(${this.value})`
-    }
+    // document.getElementById("inp-pret").onchange=function(){
+    //     document.getElementById("infoRange").innerHTML=`(${this.value})`
+        
+        
+        
+    // }
+    
+   
+
 
     // document.getElementById("filtrare").onclick=function(){
     //     let val_nume=document.getElementById("inp-nume").value.toLowerCase();
@@ -142,9 +148,6 @@ window.addEventListener("load",function(){
 
         var produse=document.getElementsByClassName("produs_card");
 
-        
-        
-
     
         let radiobuttons= document.getElementsByName("gr_rad");
         let val_cal_nutritiva="ABCD";
@@ -156,7 +159,8 @@ window.addEventListener("load",function(){
         let s_multiplu=document.getElementsByClassName("sel_multiplu");
         let valori_s_multiplu=[];
         
-        //Salvare cookie-uri
+        ////PT RANGE
+        document.getElementById("infoRange").innerHTML = `(${val_pret})`;
         
        
         for(let qq of s_multiplu[0].options){
@@ -192,6 +196,8 @@ window.addEventListener("load",function(){
             let index = 0;
 
             
+            
+
             
         for(let prod of produse){
             prod.style.display="none";
@@ -248,7 +254,7 @@ window.addEventListener("load",function(){
                     if(val_vitamine.includes(vit))
                         cond_vit=true;
                 }
-                //console.log(prod_vitamine);
+                
 
                 
             }
@@ -256,12 +262,15 @@ window.addEventListener("load",function(){
         
 
             if(cond_nume && cond_calitate_nutritiva && cond_pret && cond_categ && cond_vit && cond_datalist && cond_s_multiplu){
-                setTimeout(function() {
+                setTimeout(function() { //vechea functie
                     
                     prod.style.display = "block";
                    
 
                 }, t * index++);
+                
+                //prod.style.display = "block";
+                
             }
                 
         }
@@ -269,10 +278,16 @@ window.addEventListener("load",function(){
         
     }
 
-    let filtrareInputs = document.querySelectorAll('#inp-nume, #inp-pret, #inp-categorie, [name="gr_rad"],  [name="checkbox_vitamine"], #dt,.sel_multiplu,#infoRange');
+    
+    
+
+    let filtrareInputs = document.querySelectorAll('#inp-nume, #inp-pret,#inp-categorie, [name="gr_rad"],  [name="checkbox_vitamine"], #dt,.sel_multiplu');
         for(let filtru of filtrareInputs) {
             filtru.onchange = filtrareAutomata;
         }
+
+        
+    
 
     
 

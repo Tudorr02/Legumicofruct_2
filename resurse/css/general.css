@@ -430,6 +430,9 @@ footer a:hover {
 .aranjare_sub_meniu{
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
+ 
 }
 .last_page{
  text-align: right;
