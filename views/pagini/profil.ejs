@@ -25,9 +25,9 @@
 		<% } %>
 	</head>
 	<body class="container">
-		<header>
+		
 			<%- include("../fragmente/header") %>
-		</header>
+		
 		<main>
 			<% if(locals.utilizator) { %>
 			<section>
@@ -37,11 +37,14 @@
 				<img src="/<%- locals.utilizator.poza%>" alt="nu ati incarcat poza de profil" />
 			</section>
 			<%- include("../fragmente/formular",{action:"/profil"}) %>
-		</main>
+		
 		<% } else { %>
 			<p>Nu sunteti logat</p>
 		<% } %>
-		<%- include("../fragmente/footer") %>
+		<p><%-locals.mesaj%></p>
+
 		
+	</main>
+	<%- include("../fragmente/footer") %>
 	</body>
 </html>

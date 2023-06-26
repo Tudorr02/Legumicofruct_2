@@ -145,6 +145,7 @@ class Utilizator{
         if (!username) return null;
         let eroare=null;
         AccesBD.getInstanta(Utilizator.tipConexiune).select({tabel:"utilizatori",campuri:['*'],conditiiAnd:[`username='${username}'`]}, function (err, rezSelect){
+            let u=null;
             if(err){
                 console.error("Utilizator:", err);
                 console.log("Utilizator",rezSelect.rows.length);
@@ -156,7 +157,8 @@ class Utilizator{
             }
             //constructor({id, username, nume, prenume, email, rol, culoare_chat="black", poza}={})
             else{
-            let u= new Utilizator(rezSelect.rows[0])
+             u= new Utilizator(rezSelect.rows[0])
+            
             }
             proceseazaUtiliz(u, obparam, eroare);
         });
