@@ -198,6 +198,9 @@ app.get(["/index","/","/home"],function(req,res){
         
 // });
 
+
+
+
 //--------------PRODUSE-----------------
 app.get("/produse_legumicofruct",function(req, res){
     //console.log(req.query.tip);
@@ -248,6 +251,8 @@ app.get("/produse_legumicofruct",function(req, res){
 
 
 });
+
+
 
 ////PENTRU INREGISTRARE UTILIZATOR
 app.post("/inregistrare",function(req, res){

@@ -127,7 +127,7 @@
 
 }
 .range{
-    margin-bottom: 30px;
+    padding: 30px;
 }
 
 #label_range{
@@ -136,7 +136,8 @@
 
 .form-range{
     width: 60%;
-    padding:10px
+    padding:10px;
+    
 }
 
 
@@ -186,4 +187,45 @@
     100% {
         transform: scale(1);
     }
+}
+
+.sortare_dinamica{
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+    display: flex;
+}
+.form-select-sm{
+    text-align: center;
+    width: 180px;
+}
+
+.sortare_dinamica>*{
+ margin-left: 5px;
+}
+
+.PREVIEW{
+    justify-content: space-between;
+    display: flex;
+}
+
+.mbicon{
+    margin-left: 6px;
+}
+
+.modal-content{
+    background-color: var(--culoare_grid);
+}
+
+#modalIMG{
+    width: 50%;
+}
+.modal-title{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.modal{
+    z-index: 999999;
 }

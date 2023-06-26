@@ -143,8 +143,28 @@ window.addEventListener("load",function(){
     //     console.log(pret_min,pret_max);
     // }
 
+    ///FUNCTIE PENTRU DIACRITICE
+    function DiacriticeCancel(text) {
+        var map = {
+            'ă': 'a',
+            'â': 'a',
+            'î': 'i',
+            'ș': 's',
+            'ț': 't',
+            'ȃ': 'a',
+            'ȋ': 'i',
+            'ș': 's',
+            'ț': 't',
+        };
+        ///g pentru toate aparitile din text
+        return text.replace(/[ăâîșțȃȋșț]/g, function(match) {
+            return map[match];
+        });
+    }
+      
+
     function filtrareAutomata() {
-        let val_nume=document.getElementById("inp-nume").value.toLowerCase();
+        let val_nume=DiacriticeCancel(document.getElementById("inp-nume").value.toLowerCase());
 
         var produse=document.getElementsByClassName("produs_card");
 
@@ -420,7 +440,58 @@ window.addEventListener("load",function(){
             
             
     }
+
+
+    /**
+ * Aceasta functie se declanseaza la click pe butonul de sortare.
+ * Culege valorile selectate de utilizator si apeleaza functia de sortare.
+ */
+
+    document.getElementById("btnSortare").onclick = function() {
+        var cheie1 = document.getElementById("selectCheie1").value;
+        var cheie2 = document.getElementById("selectCheie2").value;
+        var ordine = document.getElementById("selectOrdine").value;
     
+        var semn = 1;
+        if (ordine === "descrescator") {
+          semn = -1;
+        }
+    
+        sortare_dinamica(semn, cheie1, cheie2);
+      }
+    
+      /**
+         * Aceasta functie sorteaza produsele in functie de criteriile alese de utilizator.
+         * @param {number} semn - Semnul ce determina ordinea de sortare (1 pentru crescator, -1 pentru descrescator).
+         * @param {string} cheie1 - Primul criteriu de sortare.
+         * @param {string} cheie2 - Al doilea criteriu de sortare.
+         */
+      function sortare_dinamica(semn, cheie1, cheie2) {
+        var produse = document.getElementsByClassName("produs_card");
+        var v_produse = Array.from(produse);
+    
+        v_produse.sort(function(a, b) {
+          var val_a = a.getElementsByClassName("val-" + cheie1)[0].innerHTML;
+          var val_b = b.getElementsByClassName("val-" + cheie1)[0].innerHTML;
+    
+          if (val_a === val_b) {
+            val_a = a.getElementsByClassName("val-" + cheie2)[0].innerHTML;
+            val_b = b.getElementsByClassName("val-" + cheie2)[0].innerHTML;
+          }
+    
+          if (cheie1 === "pret" || cheie2 === "pret") {
+            val_a = parseFloat(val_a);
+            val_b = parseFloat(val_b);
+            return(semn*(val_a-val_b))
+          }
+    
+          return semn * (val_a.localeCompare(val_b));
+        });
+    
+        for (var i = 0; i < v_produse.length; i++) {
+          v_produse[i].parentElement.appendChild(v_produse[i]);
+        }
+    }
     
     
     

@@ -123,9 +123,9 @@
                             <% } %>
                         </datalist>
                     </div>
-                    <div class="col">
+                    <div class="col ">
                         <label>Select simplu:
-                            <select id="inp-categorie">
+                            <select id="inp-categorie" class="form-select-sm">
                                 <option id="sel-toate" selected value="toate">toate</option>
                                 <% for (let opt of locals.optiuni) { %>
                                     <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
@@ -141,6 +141,29 @@
 
                 </div>
                 
+                <div class="sortare_dinamica">
+                    <!-- Exemplu de select-uri pentru cheile de sortare -->
+                        <select id="selectCheie1" class="form-select form-select-sm" >
+                            <option value="pret">Preț</option>
+                            <option value="nume">Nume</option>
+                            <option value="categorie">Categorie</option>
+                        </select>
+                        
+                        <select id="selectCheie2" class="form-select form-select-sm">
+                            <option value="pret">Preț</option>
+                            <option value="nume">Nume</option>
+                            <option value="categorie">Categorie</option>
+                        </select>
+                        
+                        <!-- Exemplu de select pentru ordine -->
+                        <select id="selectOrdine" class="form-select form-select-sm">
+                            <option value="crescator">Crescător</option>
+                            <option value="descrescator">Descrescător</option>
+                        </select>
+                        
+                        <!-- Buton pentru a aplica sortarea -->
+                        <button id="btnSortare" class="btn btn-secondary btn-sm">Sortează</button>
+
                 </div>
                 <div class="buttons">
                     <button id="filtrare" class="btn btn-primary btn-sm"> 
@@ -218,9 +241,10 @@
 
     </main>
 
+
     <%- include("../fragmente/footer.ejs") %>
 
-  
+
 
 </body>
 </html>     

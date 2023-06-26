@@ -6,11 +6,18 @@ inca nu am implementat protectia contra SQL injection
 
 const {Client, Pool}=require("pg");
 
-
+/**
+ * Aceasta clasa implementeaza patternul Singleton pentru a permite o singura conexiune la baza de date.
+ * Clasa contine metode pentru initializarea conexiunii si obtinerea clientului de baza de date.
+ */
 class AccesBD{
     static #instanta=null;
     static #initializat=false;
 
+     /**
+     * Constructorul clasei. Verifica daca clasa a fost deja instantiata si daca a fost initializata corect.
+     * Daca nu sunt indeplinite conditiile, arunca o eroare.
+     */
     constructor() {
         if(AccesBD.#instanta){
             throw new Error("Deja a fost instantiat");
@@ -19,7 +26,9 @@ class AccesBD{
             throw new Error("Trebuie apelat doar din getInstanta; fara sa fi aruncat vreo eroare");
         }
     }
-
+ /**
+     * Aceasta metoda initializeaza conexiunea la baza de date.
+     */
     initLocal(){
         this.client= new Client({database:"legumicofruct",
             user:"legumicofruct", 
@@ -33,7 +42,11 @@ class AccesBD{
         //         port:5432});
          this.client.connect();
     }
-
+/**
+     * Aceasta metoda returneaza clientul de baza de date.
+     * Daca clasa nu a fost instantiata, arunca o eroare.
+     * @returns {Object} - Clientul de baza de date.
+     */
     getClient(){
         if(!AccesBD.#instanta ){
             throw new Error("Nu a fost instantiata clasa");

@@ -1,4 +1,13 @@
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  
+
+
 <script src="/resurse/js/produse_card.js"></script>
 <script src="/resurse/js/carduri.js"></script>
 <div class="grid-card">
@@ -25,7 +34,19 @@
                             })%> [<%-prod.data_adaugare.toLocaleDateString('ro-RO', { weekday: 'long' })%>]
                         </time></li>
                         <li class="list-group-item"><span class="low_calorie">Produs zero-caloric :</span> <span class="val-low_calorie"><%- prod.low_calorie%></span></li>
-                        <li class="list-group-item"><span class="pret">Pret : </span><span class="val-pret"><%- prod.pret%> </span>RON</li>
+                        <li class="list-group-item">
+                            <div class="PREVIEW">
+                                <div><span class="pret">Pret : </span><span class="val-pret"><%- prod.pret%> RON</span></div>
+                                <button type="button" id="buttonPreview" class="btn btn-outline-primary btn-sm previewButton" data-target="#productModal<%prod.nume%>" data-toggle="modal"  data-prod-id="<%- prod.id %>" >
+                                    <span  >Preview
+                                        <i class="bi bi-eye mbicon"></i>
+                                    </span>
+                                </button>
+                                
+
+                            </div>
+                        </li>
+                        
                         
 
                     </ul>
@@ -39,4 +60,41 @@
        
     <% }%>
 </div>
+
+<% for( let prod of locals.produse) { %>
+ <div class="modal fade bd-example-modal-lg " id="productModal<%prod.nume%>" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productModalLabel"><%- prod.nume %></h5>
+                <button type="button" class=" btn btn-primary btn-sm" data-dismiss="modal" >
+                    <i class="bi bi-x-lg"></i>
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="text">
+                        <figure class="imag-produs">
+                            <img src="/resurse/imagini/produse/<%- prod.imagine %>" id="modalIMG" alt="[imagine <%- prod.nume %>]" />
+                        </figure>
+                        <p>Pret: <span class="pret" id="modalPret"><%- prod.pret %> RON </span></p>
+                        <p>Descriere: <span class="descriere" id="modalDescriere"><%- prod.descriere %> </span></p>
+                        <p>Vitamine: <span class="vitamine" id="modalVitamine"><%- prod.vitamine %> </span></p>
+                        <p>Calitate nutritiva: <span class="calitate" id="modalCalitate><%- prod.cal_nutritiva %> </span></p>
+                        <p>Gramaj: <span class="gramaj" id="modalGramaj"><%- prod.gramaj %> </span></p>
+                        <p>Categorie: <span class="categorie" id="modalCategorie"><%- prod.categorie %> </span></p>
+                        <p>Produs zero-caloric : <span class="low_calorie" id="modalCaloric"><%- prod.low_calorie %> </span></p>
+                        <p>Data adăugare: <span class="adaugare" id="modalAdaugare"><%- prod.data_adaugare %> </span></p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<% }%>
+
+
 
