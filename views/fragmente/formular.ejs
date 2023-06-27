@@ -1,52 +1,67 @@
 <form id="form_inreg"  method="post" class="date"  action="<%= locals.action %>"  enctype="multipart/form-data" >
     <p>
+        <label >
+            Username: <input type="text" class="form-control" name="username" id="inp-username" value="prof<%= Math.floor(Math.random()*100000) %>" required pattern="[A-Za-z0-9#_./]+">
+           
+              
+        </label>
+       
+        
+    </p>
+    <p>
         <label>
-            Username: <input type="text" name="username" id="inp-username" value="prof<%= Math.floor(Math.random()*100000) %>" required pattern="[A-Za-z0-9#_./]+">
+            Nume: <input type="text" name="nume"class="form-control" id="inp-nume"  value="Gogulescu" required pattern="[A-Za-z]+" >
         </label>
     </p>
     <p>
         <label>
-            Nume: <input type="text" name="nume" id="inp-nume"  value="Gogulescu" required pattern="[A-Za-z]+" >
+            Prenume: <input type="text" name="prenume" class="form-control" id="inp-prenume" value="Gogu" required pattern="[A-Za-z]+" >
         </label>
     </p>
     <p>
         <label>
-            Prenume: <input type="text" name="prenume" id="inp-prenume" value="Gogu" required pattern="[A-Za-z]+" >
+            Parola: <input id="parl" type="password" class="form-control" required  name="parola" value="">
         </label>
     </p>
     <p>
         <label>
-            Parola: <input id="parl" type="password" required  name="parola" value="">
+            Email: <input type="text" name="email" id="inp-email" class="form-control"  required pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$" 
+            value="profprofprof007@gmail.com"  size="50">
         </label>
     </p>
     <p id="p-reintrod">
         <label >
-            Reintroduceti parola: <input id="rparl" required type="password" name="reintroducere_parola" value="">
+            Reintroduceti parola: <input id="rparl" class="form-control" required type="password" name="reintroducere_parola" value="">
+        </label>
+    </p>
+    
+    <p>
+        <label>
+            An nastere: <input type="number" id="inp-an_nastere" class="form-control" name="an_nastere" min="1900" max="3000">
         </label>
     </p>
     <p>
         <label>
-            Email: <input type="text" name="email" id="inp-email" required pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$" 
-            value="profprofprof007@gmail.com"  size="50">
+            Culoare text chat: <select name="culoare_chat" style="text-align: center;" class="btn btn-sm btn-secondary dropdown-toggle" id="sel-culoare"><option value="red" selected>rosu</option><option value="green">verde</option><option value="blue">albastru</option></select>
         </label>
     </p>
     <p>
         <label>
-            An nastere: <input type="number" id="inp-an_nastere" name="an_nastere" min="1900" max="3000">
-        </label>
-    </p>
-    <p>
-        <label>
-            Culoare text chat: <select name="culoare_chat" id="sel-culoare"><option value="red" selected>rosu</option><option value="green">verde</option><option value="blue">albastru</option></select>
-        </label>
-    </p>
-    <p>
-        <label>
-            Poza: <input type="file" name="poza">
+            Poza: <input class="btn btn-outline-secondary btn-sm" type="file" name="poza">
         </label>			
     </p>
     <p>		
-        <input type="submit" value="Trimite">
-        <input type="reset" value="Reseteaza">
+        <input class="btn btn-outline-primary btn-sm" id="inregistrare_trimite" type="submit" value="Trimite">
+        <input class="btn btn-outline-primary btn-sm" type="reset" value="Reseteaza">
     </p>
 </form>
+
+<div class="alternative">
+    <% if (locals.alternative && locals.alternative.length > 0) { %>
+        <div class="recomandare_username" >Acest username este folosit, poti incerca:<br></div>
+        <% for (let alternativa of locals.alternative) { %>
+          <li> <%= alternativa %> <br></li>
+        <% } %>
+      <% } %>
+    
+</div>

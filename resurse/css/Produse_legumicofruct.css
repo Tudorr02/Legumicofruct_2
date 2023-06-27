@@ -155,9 +155,10 @@
 
 .grid-card{
      display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 2rem;
     justify-content: center;
+    align-items: center;
   
     /* padding-left: var(--spatiere-pagina);
     padding-right: var(--spatiere-pagina); */

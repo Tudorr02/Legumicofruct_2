@@ -16,6 +16,51 @@
 
     <link rel="stylesheet" href="/resurse/css/Duotone.css" media="all">
     <link rel="stylesheet" href="/resurse/css/ReflexieText.css" media="all">
+
+    <script type="text/javascript" src="/node_modules/socket.io/client-dist/socket.io.js"></script> 
+
+	<script>port=s.port</script>
+	
+	
+	<script>
+	socketUrl = "../../";  
+	if(document.location.href.indexOf("localhost") != -1) {  
+		socketUrl = "http://127.0.0.1:"+port;
+	}
+	//const socket = io(socketUrl,{reconnect: true});  
+	socket = io();
+	socket.on("mesaj_nou", function(nume, culoare, mesaj) {  
+	
+		var chat=document.getElementById("mesaje_chat");
+		chat.innerHTML+=`<p> ${nume} : <span style='color:${culoare}'>${mesaj}</span></p> `;
+		
+
+		//ca sa scrolleze la final
+		chat.scrollTop=chat.scrollHeight;
+	});
+	
+	function trimite(){
+		var culoare=document.getElementById("culoare").value;
+		var nume=document.getElementById("nume").value;
+		var mesaj=document.getElementById("mesaj").value;
+		fetch("/mesaj",  {		
+		
+					method: "POST",
+					headers:{'Content-Type': 'application/json'},
+					
+					mode: 'cors',		
+					cache: 'default',
+					body: JSON.stringify({
+						culoare: culoare,
+						nume:nume,
+						mesaj:mesaj
+					})
+				})
+
+
+}
+
+	</script>
     
            
 </head>
@@ -28,22 +73,46 @@
     
     <main id="DevinoPartenerPrincipal" > 
         
-       <section id="DevinoPartener">
+       
+        <section id="DevinoPartener">
+            <div>
+                <section >
+                    <div id="text">Devino Partener
+                    <div id="text-reflectat">Devino Partener</div>
+                    </div>
+                    <br>
+                    <div id="Duotone"></div>
+                
+
+                
+                </section>
+            </div>
+            <div class="mesaje_chat">
             
-
-            <section >
-                <div id="text">Devino Partener
-                <div id="text-reflectat">Devino Partener</div>
+                <div id="chat">
+                    <div id="mesaje_chat">
+                    </div>
+                    <label>
+                    Nume: <input type="text" id="nume" name="nume" value="ionel">
+                    </label><br/>
+                    <label>
+                    Mesaj: <textarea id="mesaj" name="mesaj" value="bau! "></textarea>
+                    </label><br/>
+                    <label>
+                    Culoare: <select id="culoare" name="culoare">
+                    <option value="red">red</option>
+                    <option value="green">green</option>
+                    <option value="blue">blue</option>
+                    </select>
+                    </label><br/>
+                    <button onclick="trimite()">ok</button>
                 </div>
-                <br>
-                <div id="Duotone"></div>
-               
-
-               
-            </section>
-    
+                <div contenteditable class="cmesaj" style="border:1px solid black;">Ceva</div>
+        
+            
+            </div>
         </section>
-
+        
     </main>
 
     <%- include("../fragmente/footer.ejs") %>

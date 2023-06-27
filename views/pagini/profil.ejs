@@ -28,23 +28,23 @@
 		
 			<%- include("../fragmente/header") %>
 		
-		<main>
-			<% if(locals.utilizator) { %>
-			<section>
-				<h2>Profil</h2>
-                
-				<p><%= locals.raspuns %></p>
-				<img src="/<%- locals.utilizator.poza%>" alt="nu ati incarcat poza de profil" />
-			</section>
-			<%- include("../fragmente/formular",{action:"/profil"}) %>
-		
-		<% } else { %>
-			<p>Nu sunteti logat</p>
-		<% } %>
-		<p><%-locals.mesaj%></p>
+		<main class="afisaj">
+				<% if(locals.utilizator) { %>
+				<section>
+					<h2>Profil</h2>
+					
+					<p><%= locals.raspuns %></p>
+					<img src="/<%- locals.utilizator.poza%>" alt="nu ati incarcat poza de profil" />
+				</section>
+				<%- include("../fragmente/formular",{action:"/profil"}) %>
+			
+			<% } else { %>
+				<p>Nu sunteti logat</p>
+			<% } %>
+			<p><%-locals.mesaj%></p>
 
 		
-	</main>
+		</main>
 	<%- include("../fragmente/footer") %>
 	</body>
 </html>

@@ -86,7 +86,7 @@ body{
   min-width: 580px;
 }
 
-#PaginaPrincipala > section, #DevinoPartenerPrincipal>section, #filtre_produse,.produs {
+#PaginaPrincipala > section, #DevinoPartenerPrincipal>section, #filtre_produse,.produs,.afisaj {
 
   border: 5px solid var(--culoare_border1);
   padding: var(--pading-inside-grid);/* ETAPA 3 pct d*/
@@ -446,3 +446,61 @@ footer a:hover {
 .teme_bonus>i{
 margin-left: 5px;
 }
+
+
+.cmesaj{
+  width: 400px;
+}
+
+.date{
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+
+}
+.grid-logare{
+border: 5px solid var(--culoare_border1);
+  
+  background-color: var(--culoare_grid);
+  border: var(--culoare_border1) 5px solid;
+  border-radius: 10px;
+  margin-left: 400px;
+  margin-right: 400px;
+  box-shadow: 0px 0px 20px black ;
+  display: flex;
+  justify-content: center;
+    align-items: center;
+ 
+}
+
+.login_date{
+
+  display: block;
+  text-align: center;
+
+
+}
+
+.alternative{
+  border: 6px solid var(--culoare_evidentiere2);
+  border-radius: 10px;
+  width:400px;
+  padding: 3px;
+}
+
+.cos-virtual{
+  display: block;
+  background-color: var(--culoare_grid);
+  border: var(--culoare_border1) 5px solid;
+  border-radius: 10px;
+  
+  box-shadow: 0px 0px 20px black ;
+  
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+h2.cos-virtual{
+  text-align: left;
+}
+
